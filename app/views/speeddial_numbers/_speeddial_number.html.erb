@@ -1,0 +1,15 @@
+<% form_for ([speeddial_number.user, speeddial_number]) do |f| %>
+	<tr>
+		<td><%= f.text_field :entry, :class=>"text", :size=>"5" %></td>
+		<td><%= f.text_field :number, :class=>"text", :size=>"20" %></td>
+		<td><%= f.text_field :description, :class=>"text", :size=>"20" %></td>
+		<td>
+			<% unless speeddial_number.id.blank? -%>
+				<%= f.submit 'Update', :class => "button" %>
+				<%= f.submit 'Delete', :class => "button" %>
+			<% else -%>
+				<%= f.submit 'Add', :class => "button" %>
+			<% end -%>
+		</td>
+	</tr>
+<% end -%>

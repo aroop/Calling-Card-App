@@ -1,0 +1,45 @@
+<div id="main">
+
+<h2>Welcome to Account Management Area</h2>
+<br />
+<h3><%#= link_to "Account Information", edit_user_url %></h3>
+View and edit account and credit card information here.
+<br />
+<br />
+<h3><%= link_to "Change Password", change_password_user_path(@user) %></h3>
+Change the password on your account.
+<br />
+<br />
+<h3><%= link_to "Account Call History Reporting", user_pinless_numbers_path(current_user) %></h3>
+See detailed call history and account transaction information.
+<br />
+<br />
+<h3><%= link_to "Add pinless Number", user_pinless_numbers_path(current_user) %></h3>
+Change your pinless dial number or add new numbers for pinless dial.
+<br />
+<br />
+<h3><%= link_to "Speed Dial Settings", user_speeddial_numbers_path(current_user) %></h3>
+Add or edit your numbers on speed dial.
+<br />
+<br />
+</div>
+
+<!-- END main -->
+
+<!-- BEGIN sidebar -->
+<div id="sidebar"><div class="buffer">
+
+	<!-- begin products -->
+	<h4>India ISD 1000</h4>
+	<h4>Account: <%= @user.id -%></h4>
+	<h4>Minutes Available: 527</h4>
+	<h4>Activated: <%= time_ago_in_words @user.created_at -%> ago</h4>
+	<!-- end products -->
+
+</div></div>
+<!-- END sidebar -->
+		<div class="break">
+	</div>
+
+</div>
+<!-- END content -->

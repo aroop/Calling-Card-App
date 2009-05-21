@@ -1,0 +1,60 @@
+<!-- BEGIN main -->
+<div id="main">
+	<h2><%= @page_title = 'Change My Password' %></h2>
+
+	<% form_for @user, :url => password_reset_path, :method => :put do |f| %>
+	<%= f.error_messages %>
+
+		<div class="first input">
+			<p>Password</p>
+			<%= f.password_field :password %>
+		</div>
+		<div class="input">
+			<p>Password Confirmation</p>
+			<%= f.password_field :password_confirmation %>
+		</div>
+		<div class="input">
+			<input type="submit" value="Update my password and log me in" class="button"/>
+			<input type="reset" value="Reset" class="button"/>
+		</div>
+	<% end %>
+</div>
+<!-- END main -->
+
+<!-- BEGIN sidebar -->
+<div id="sidebar"><div class="buffer">
+
+	<!-- begin products -->
+	<h2>Products</h2>
+	<ul>
+	<li><a href="#">Lorem ipsum dolor</a></li>
+	<li><a href="#">Sit amet consectetur</a></li>
+	<li><a href="#">Adipiscing elit</a></li>
+	<li><a href="#">Praesent lacinia laoreet</a></li>
+	</ul>
+	<!-- end products -->
+	
+	<!-- begin services -->
+	<h2>Services</h2>
+	<ul>
+	<li><a href="#">Lorem ipsum dolor</a></li>
+	<li><a href="#">Sit amet consectetur</a></li>
+	<li><a href="#">Adipiscing elit</a></li>
+	<li><a href="#">Praesent lacinia laoreet</a></li>
+	</ul>
+	<!-- end services -->
+	
+	<!-- begin quick links -->
+	<h2>Quick Links</h2>
+	<ul>
+	<li><a href="#">Terms and Conditions</a></li>
+	<li><a href="#">Privacy Policy</a></li>
+	<li><a href="#">Frequently Asked Questions</a></li>
+	<li><a href="#">Become an Affiliate</a></li>
+	</ul>
+	<!-- end quick links -->
+
+</div></div>
+<!-- END sidebar -->
+
+

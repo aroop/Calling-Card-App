@@ -1,0 +1,31 @@
+<!-- BEGIN main -->
+<div id="main">
+	<h2><%= @page_title = 'Update Your Account Information' %></h2>
+
+	<% form_for(@user) do |f| %>
+	  <%= f.error_messages %>
+			<div class="first input">
+				<p>Full Name:</p>
+				<%= f.text_field :name, :class => "text", :size => "48" %>
+			</div>
+			<div class="input">
+				<p>Email:</p>
+				<%= f.text_field :email, :class => "text", :size => "48" %>
+			</div>
+			<div class="input">
+				<p>Phone Number:</p>
+				<%= f.text_field :phone_number, :class => "text", :size => "48" %>
+			</div>
+			<div class="input">
+				<%= f.submit 'Update', :class => "button" %>
+				<input type="reset" value="Reset" class="button"/>
+			</div>
+			<% end %>
+</div>
+<!-- END main -->
+
+<!-- BEGIN sidebar -->
+<div id="sidebar"><div class="buffer">
+Note: Please enter your new desired login password and then confirm your entry for security purposes.  Please remember your new login password and/or write it down in a safe location for later reference.
+</div></div>
+<!-- END sidebar -->

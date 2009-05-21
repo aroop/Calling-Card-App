@@ -1,0 +1,2 @@
+module SpeeddialNumbersHelper
+end

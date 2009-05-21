@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title><%= @page_title ? "#{@page_title} | #{AppConfig['app_name']}" : AppConfig['app_name'] %></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/lightbox.css" />
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="stylesheets/ie6.css" /><![endif]-->
+</head>
+
+<body>
+	<div id="wrapper">
+
+	<!-- BEGIN header -->
+	<div id="header">
+		<h1><%= link_to "India ISD", root_path %></h1>
+		<div class="access_number">
+			Access Number: 650 835 4489
+		</div>
+
+		<ul id="nav">
+			<li <%= controller_action_is("user_sessions", "index")? "class=here" : "" -%> ><%= link_to "Home", root_path %></li>
+			<li <%= controller_action_is("user_sessions", "pricing")? "class=here" : "" -%> ><%= link_to "Pricing & Sign up", pricing_path %></li>
+			<li <%= controller_action_is("user_sessions", "tour")? "class=here" : "" -%> ><%= link_to "Tour", tour_path %></li>
+			<li <%= controller_action_is("user_sessions", "faq")? "class=here" : "" -%> ><%= link_to "FAQ", faq_path %></li>
+			<li <%= controller_action_is("user_sessions", "contact")? "class=here" : "" -%> ><%= link_to "Contact Us", contact_path %></li>
+            <% if current_user %>
+              <li <%= controller_action_is("users", "show")? "class=here" : "" -%> >
+                  <%= link_to "Dashboard", user_path(current_user) %></li>
+            <% end %>
+			<li <%= controller_action_is("user_sessions", "new")? "class=here" : "" -%> >
+				<% unless current_user %>
+				<%= link_to "Login", login_path %>
+				<% else %>
+				<%= link_to "Logout", logout_path %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+	<!-- END header -->
+	
+	<!-- BEGIN body -->
+	<div id="body">
+			<%= flash_messages %>
+			<%= yield :layout %>
+		<div class="break"></div>	
+	</div>
+	<!-- END body -->
+
+</div>
+<!-- END wrapper -->
+
+<!-- BEGIN footer -->
+<div id="footer"><div class="buffer">
+	<p>Copyright &copy; 2009 by India ISD. All Rights Reserved.</p>
+	<p><%= link_to "Terms and Conditions", toc_path %> | <%= link_to "Privacy Policy", privacy_path %> | <%= link_to "FAQ", faq_path %> | <%= link_to "About Us", about_path %> | <%= link_to "Contact Us", contact_path %></p>
+</div></div>
+<!-- END footer -->
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!-- BEGIN main -->
+<div id="main">
+	<h2>Speed Dial Manager</h2>
+	<div id="form">
+		<table width="100%">
+			<tr>
+				<th>Entry</th>
+				<th>Destination</th>
+				<th>Description</th>
+				<th></th>
+			</tr>	
+			<%= render :partial => 'speeddial_number', :collection => @speeddial_numbers %>
+		</table>
+		<%= link_to 'Add new entry', :action => 'new' %>		
+	</div>
+</div>
+<!-- END main -->
+
+<!-- BEGIN sidebar -->
+<div id="sidebar"><div class="buffer">
+ <h2>Speed Dial Instructions</h2>
+
+	<ul>
+		<li>Put a 2 or 3 digit number in the entry field. This will be the speed dial number you enter when calling our access line.</li>
+		<li>In the destination field, enter the number you want to add with the international and country code first, (ex: 011919885002001)</li>
+		<li>The description field lets you enter a note about the speed dial entry, so you don't forget what the number is.</li>
+		<li>When placing your call, first enter 1 to place a call and then enter your 2-3 digit speed dial number followed by the # key, (ex: 02#).</li>
+		<li>To manage your speed dial on the phone, call your access number, followed by your account number if necessary and then after the prompt enter 2 to manage your speed dial numbers.</li>
+	</ul>
+
+</div></div>
+<!-- END sidebar -->

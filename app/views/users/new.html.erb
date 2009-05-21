@@ -1,0 +1,62 @@
+<!-- BEGIN main -->
+<div id="main">
+		<h2><%= @page_title = 'India ISD 1000 minute plan' %></h2>
+
+<p>This is a recurring charge that will be billed each month.</p>
+	<% form_for(@user) do |f| %>
+		<%= f.error_messages %>
+			<div class="first input">
+				<p>Login:</p>
+				<%= f.text_field :login, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<p>Email:</p>
+				<%= f.text_field :email, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<p>Password:</p>
+				<%= f.password_field :password, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<p>Confirm Password:</p>
+				<%= f.password_field :password_confirmation, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<p>Full Name:</p>
+				<%= f.text_field :name, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<p>Phone Number:</p>
+				<%= f.text_field :phone_number, :class=>"text", :size=>"48" %>
+			</div>
+			<h4>By Signing up you are accepting Terms of Service.</h4>
+			<p>Do not press the purchase button more than once.</p>
+			<div class="input">
+				<input type="submit" value="Purchase" class="button"/>
+			</div>
+			<% end %>
+</div>
+<!-- END main -->
+
+<!-- BEGIN sidebar -->
+<div id="sidebar"><div class="buffer">
+
+	<h4>Pinless Dialing</h4>
+	<h4>15 Speed dial numbers</h4>
+	<h4>30 Day Money Back</h4>
+	<h4>1 Minute Rounding</h4>
+	<h4>Superior voice quality</h4>
+	<h4>No Connection Fees</h4>
+	<h4>Instant Activation</h4>
+	<h4>Last number redial</h4>
+	
+</div></div>
+<!-- END sidebar -->			
+
+			<div class="break"></div>
+		
+		</div>
+		<!-- END content -->
+	
+	</div>
+	<!-- END body -->
