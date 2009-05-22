@@ -1,7 +1,5 @@
 # See how all your routes lay out with "rake routes"
 ActionController::Routing::Routes.draw do |map|
-  map.resources :cdrs
-
   
   map.resources :user_sessions
   map.resources :password_resets
@@ -9,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users do |user|
 		user.resources :speeddial_numbers
 		user.resources :pinless_numbers
+		user.resources :cdrs, :member => {:report => :get}
 	end
 	
 	map.resource :account, :controller => "users"

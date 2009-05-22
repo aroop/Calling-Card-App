@@ -6679,3 +6679,332 @@ Migrating to CreateCdrs (20090522054301)
   [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
   [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `users`[0m
   [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 23:03:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 97ms (View: 79, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (12.4ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (31.2ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090521003303)
+  [4;35;1mSQL (3.3ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `perishable_token` varchar(255) DEFAULT '' NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `address_1` varchar(255) NOT NULL, `address_2` varchar(255) NOT NULL, `city` varchar(255) NOT NULL, `state` varchar(255) NOT NULL, `zip_code` varchar(255) NOT NULL, `phone_number` varchar(255) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090521003303')[0m
+Migrating to CreateSpeeddialNumbers (20090521021909)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE `speeddial_numbers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `number` varchar(255), `description` varchar(255), `entry` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090521021909')[0m
+Migrating to CreatePinlessNumbers (20090521022049)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE `pinless_numbers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `ani_or_phonenumber` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090521022049')[0m
+Migrating to CreateCdrs (20090522054301)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE `cdrs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `calldate` datetime, `src` varchar(255), `dst` varchar(255), `channel` varchar(255), `dstchannel` varchar(255), `didnumber` varchar(255), `duration` int(11), `billsec` int(11), `disposition` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090522054301')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `cdrs`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mdescribe `cdrs`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `cdrs`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `pinless_numbers`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `speeddial_numbers`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `speeddial_numbers`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (3.6ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 23:06:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (12.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 93ms (View: 66, DB: 14) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-05-21 23:06:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 85ms (View: 8, DB: 4) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-05-21 23:06:45) [POST]
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "login"=>"aroop"}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.login) = 'aroop') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 91ms (View: 11, DB: 4) | 200 OK [http://localhost/user_sessions]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-21 23:06:49) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;36;1mUser Columns (11.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 202ms (View: 176, DB: 13) | 200 OK [http://localhost/pricing]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-21 23:06:50) [GET]
+  Parameters: {"plan"=>"Max", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 101ms (View: 25, DB: 4) | 200 OK [http://localhost/users/new?plan=Max]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-21 23:07:12) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "phone_number"=>"9163077863", "last_name"=>"Guthikonda", "password"=>"[FILTERED]", "login"=>"aroop", "email"=>"aroopchandra@gmail.com", "first_name"=>"Ajay kumar"}}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'aroopchandra@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'aroop') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'iY3LpgC_0wThjSQtPv4g') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO `users` (`city`, `single_access_token`, `last_request_at`, `created_at`, `crypted_password`, `zip_code`, `perishable_token`, `updated_at`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `address_1`, `phone_number`, `persistence_token`, `login_count`, `last_name`, `address_2`, `last_login_ip`, `login`, `last_login_at`, `email`, `first_name`, `state`) VALUES('', 'iY3LpgC_0wThjSQtPv4g', '2009-05-22 06:07:12', '2009-05-22 06:07:12', 'a59c568ec428301325eb40d78a4fc68e9bb789b07b1d595cf29447c4d906b63bb366d140d33364d94cf966dffb249b72f5e0f65dd34bbc73a25c78ff59e742da', '', 'SfOrLzdir0Ohp_JrGZip', '2009-05-22 06:07:12', 0, '127.0.0.1', 'Lb735fCPwf5RbIZo8V3a', '2009-05-22 06:07:12', '', '9163077863', 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc', 1, 'Guthikonda', '', NULL, 'aroop', NULL, 'aroopchandra@gmail.com', 'Ajay kumar', '')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/account
+Completed in 135ms (DB: 6) | 302 Found [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 23:07:12) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 06:07:12', `perishable_token` = 'd1SMD8yLxjSEVxIGQA9g', `last_request_at` = '2009-05-22 06:07:12' WHERE `id` = 1[0m
+  [4;36;1mSQL (29.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 148ms (View: 22, DB: 33) | 200 OK [http://localhost/account]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 23:07:39) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Columns (12.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 06:07:40', `perishable_token` = 'yROJbb_4vyvHTbMjZHZq', `last_request_at` = '2009-05-22 06:07:40' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 124ms (View: 21, DB: 14) | 200 OK [http://localhost/account]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:07:42) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 06:07:42', `perishable_token` = '4JoQfzjF5BdC56npl-y5', `last_request_at` = '2009-05-22 06:07:42' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+
+ActionController::UnknownAction (No action responded to index. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:08:15) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;35;1mUser Columns (11.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 06:08:15', `perishable_token` = '7ypsn-OdLLfR15OxZUlT', `last_request_at` = '2009-05-22 06:08:15' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+
+ActionView::MissingTemplate (Missing template cdrs/index.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:09:09) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;36;1mUser Columns (11.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 06:09:09', `perishable_token` = 'l09p1DQspccANe5q241u', `last_request_at` = '2009-05-22 06:09:09' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 116ms (View: 14, DB: 14) | 200 OK [http://localhost/users/1/cdrs]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#faq (for 127.0.0.1 at 2009-05-21 23:11:02) [GET]
+  Parameters: {"action"=>"faq", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/faq
+  [4;35;1mUser Columns (12.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 06:11:02', `perishable_token` = '5vCCa_3cs7iPeazOTq0n', `last_request_at` = '2009-05-22 06:11:02' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Completed in 217ms (View: 189, DB: 14) | 200 OK [http://localhost/faq]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#about (for 127.0.0.1 at 2009-05-21 23:11:05) [GET]
+  Parameters: {"action"=>"about", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/about
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 06:11:05', `perishable_token` = 'OqUOVQOXgaMXtKmIf01r', `last_request_at` = '2009-05-22 06:11:05' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Completed in 140ms (View: 122, DB: 4) | 200 OK [http://localhost/about]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:13:13) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;35;1mUser Columns (12.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 06:13:13', `perishable_token` = 'm_2DJ-4B23t92mVd2vlQ', `last_request_at` = '2009-05-22 06:13:13' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 118ms (View: 16, DB: 14) | 200 OK [http://localhost/users/1/cdrs]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-21 23:13:43) [GET]
+
+ActionController::RoutingError (No route matches "/users/1/cdr-report.html" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:17:10) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;36;1mUser Columns (12.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 06:17:10', `perishable_token` = 'xhJDSxlzeyGiLtHtGcjd', `last_request_at` = '2009-05-22 06:17:10' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 120ms (View: 16, DB: 14) | 200 OK [http://localhost/users/1/cdrs]
+  [4;35;1mSQL (2.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-21 23:17:12) [GET]
+
+ActionController::RoutingError (No route matches "/users/1/report.html" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:17:41) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;35;1mUser Columns (12.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 06:17:41', `perishable_token` = 'Oq8rh-ZwXcF_6nN3T-Jc', `last_request_at` = '2009-05-22 06:17:41' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 118ms (View: 15, DB: 14) | 200 OK [http://localhost/users/1/cdrs]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-21 23:17:43) [GET]
+
+ActionController::RoutingError (No route matches "/users/1/report" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-21 23:18:22) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"cdrs"}
+  [4;36;1mUser Columns (11.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 06:18:22', `perishable_token` = 'dj2FAD2VAtiP_qALEL8o', `last_request_at` = '2009-05-22 06:18:22' WHERE `id` = 1[0m
+  [4;36;1mSQL (26.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 146ms (View: 16, DB: 39) | 200 OK [http://localhost/users/1/cdrs]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-05-21 23:18:32) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Columns (12.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'c4090ac28ba9b0fc4b184c74d124219933204cf5d0a4353b28f10b7702b62bdbe326c3d8194c1ce6efe1d56afb398fa0336146a3f3313eeece5a9fb588907bfc') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 06:18:32', `perishable_token` = 'BvxIo2-FtoVBzkV_AMUC', `last_request_at` = '2009-05-22 06:18:32' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/edit
+Completed in 126ms (View: 20, DB: 14) | 200 OK [http://localhost/users/1/edit]

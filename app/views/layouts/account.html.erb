@@ -29,8 +29,8 @@
 				<%= link_to "Pinless Numbers", user_pinless_numbers_path(current_user) %></li>			
 			<li <%= controller_action_is("speeddial_numbers", "index")? "class=here" : "" -%> >
 				<%= link_to "Speed Dial Settings", user_speeddial_numbers_path(current_user) %></li>			
-			<li>
-				<a href="cdr.html">Call History</a></li>
+			<li <%= controller_action_is("cdrs", "index")? "class=here" : "" -%> >
+				<%= link_to "Calls History", user_cdrs_path(current_user) %></li>
 			<li <%= controller_action_is("users", "edit")? "class=here" : "" -%> >
 				<%= link_to "Account", edit_user_path(current_user) %></li>
 			<li <%= controller_action_is("user_sessions", "new")? "class=here" : "" -%> >

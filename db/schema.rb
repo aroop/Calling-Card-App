@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20090522054301) do
     t.integer  "duration"
     t.integer  "billsec"
     t.string   "disposition"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
