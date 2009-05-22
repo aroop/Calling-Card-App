@@ -2,12 +2,8 @@
 
 <h2>Welcome to Account Management Area</h2>
 <br />
-<h3><%#= link_to "Account Information", edit_user_url %></h3>
-View and edit account and credit card information here.
-<br />
-<br />
-<h3><%= link_to "Change Password", change_password_user_path(@user) %></h3>
-Change the password on your account.
+<h3><%= link_to "Account Information", edit_user_url(@user) %></h3>
+View and edit account information here.
 <br />
 <br />
 <h3><%= link_to "Account Call History Reporting", user_pinless_numbers_path(current_user) %></h3>

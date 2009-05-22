@@ -339,6 +339,10 @@ img {
 			padding-top: 12px;
 			clear: both;
 		}
+		form .buttons {
+			padding-top: 12px;
+			margin-left:160px;
+		}
 		form .first { 
 			padding-top: 0;
 		}
@@ -353,6 +357,7 @@ img {
 			color: #8B8B8B;
 			text-align:right;
 			min-width:150px;
+			float:left;
 		}
 		form input.text, form textarea {
 			border: 1px solid #BEBDBD;
@@ -651,50 +656,3 @@ table.signup td strong{
 }
 
 
-/** begin div form **/
-#form {
-	border: 1px solid #DDDDDD;
-	padding: 16px;
-	margin-bottom: 20px;
-}
-	#form .input {
-		padding-top: 12px;
-		clear: both;
-	}
-	#form .first { 
-		padding-top: 0;
-	}
-	#form .input p {
-		margin-bottom: 7px !important;
-	}
-	#form input {
-		margin-right: 5px;
-	}
-	#form label {
-		margin-right: 10px;
-		color: #8B8B8B;
-		text-align:right;
-		min-width:150px;
-	}
-	#form input.text, #form textarea {
-		border: 1px solid #BEBDBD;
-		font-size: 1em;
-		font-family: Verdana;
-		background-color: #F3F3F3;
-		color: #808080;
-		padding: 2px;
-		max-width: 100%;
-	}
-	#form textarea {
-		line-height: 1.6em;
-	}
-	#form button, #form input.button {
-		font-size: 0.9em;
-		font-family: Verdana;
-		font-weight: bold;
-		color: #ffffff;
-		background: url(../images/button.gif) repeat-x 0 0;
-		border: 0;
-		padding: 6px 9px;
-	}
-/** end div form **/

@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
   map.resources :password_resets
 
-  map.resources :users, :member => {:change_password => :get} do |user|
+  map.resources :users do |user|
 		user.resources :speeddial_numbers
 		user.resources :pinless_numbers
 	end

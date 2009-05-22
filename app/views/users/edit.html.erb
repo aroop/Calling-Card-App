@@ -1,26 +1,46 @@
+<% @page_title = 'Update Your Account Information' %>
 <!-- BEGIN main -->
 <div id="main">
-	<h2><%= @page_title = 'Update Your Account Information' %></h2>
+	<h2>Basic Information</h2>
 
 	<% form_for(@user) do |f| %>
 	  <%= f.error_messages %>
 			<div class="first input">
-				<p>Full Name:</p>
+				<label>Full Name:</label>
 				<%= f.text_field :name, :class => "text", :size => "48" %>
 			</div>
 			<div class="input">
-				<p>Email:</p>
+				<label>Email:</label>
 				<%= f.text_field :email, :class => "text", :size => "48" %>
 			</div>
 			<div class="input">
-				<p>Phone Number:</p>
+				<label>Phone Number:</label>
 				<%= f.text_field :phone_number, :class => "text", :size => "48" %>
 			</div>
-			<div class="input">
+			<div class="input buttons">
 				<%= f.submit 'Update', :class => "button" %>
 				<input type="reset" value="Reset" class="button"/>
 			</div>
 			<% end %>
+			
+			<h2>Password</h2>
+
+			<% form_for(@user) do |f| %>
+			  <%= f.error_messages %>
+					<div class="first input">
+						<label>New Password:</label>
+						<%= f.password_field :password, :class=>"text", :size=>"48" %>
+					</div>
+					<div class="input">
+						<label>Confirm New Password:</label>
+						<%= f.password_field :password_confirmation, :class=>"text", :size=>"48" %>
+					</div>
+					<div class="input buttons">
+						<%= f.submit 'Change Password', :class => "button" %>
+						<input type="reset" value="Reset" class="button"/>
+					</div>
+					<% end %>
+		  
 </div>
 <!-- END main -->
 

@@ -43,14 +43,4 @@ class UsersController < ApplicationController
     end
   end
   
-  def change_password
-    @user = current_user
-
-    respond_to do |format|
-			format.html
-    	format.xml  { render :xml => @user }
-    end
-  end
-  
-  
 end

@@ -33,8 +33,6 @@
 				<a href="cdr.html">Call History</a></li>
 			<li <%= controller_action_is("users", "edit")? "class=here" : "" -%> >
 				<%= link_to "Account", edit_user_path(current_user) %></li>
-			<li  <%= controller_action_is("users", "change_password")? "class=here" : "" -%> >
-				<%= link_to "Password", change_password_user_path(current_user) %></li>
 			<li <%= controller_action_is("user_sessions", "new")? "class=here" : "" -%> >
 				<% unless current_user %>
 				<%= link_to "Login", login_path %>
