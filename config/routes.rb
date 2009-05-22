@@ -1,5 +1,7 @@
 # See how all your routes lay out with "rake routes"
 ActionController::Routing::Routes.draw do |map|
+  map.resources :cdrs
+
   
   map.resources :user_sessions
   map.resources :password_resets

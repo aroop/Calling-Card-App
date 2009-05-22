@@ -42,7 +42,13 @@ ActiveRecord::Schema.define(:version => 20090521022049) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.string   "name",                :default => "", :null => false
+    t.string   "first_name",          :default => "", :null => false
+    t.string   "last_name",           :default => "", :null => false
+    t.string   "address_1",           :default => "", :null => false
+    t.string   "address_2",           :default => "", :null => false
+    t.string   "city",                :default => "", :null => false
+    t.string   "state",               :default => "", :null => false
+    t.string   "zip_code",            :default => "", :null => false
     t.string   "phone_number",        :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
