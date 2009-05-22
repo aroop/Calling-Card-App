@@ -5075,3 +5075,672 @@ Rendering template within layouts/application
 Rendering static/index
   [4;35;1mUser Columns (11.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
 Completed in 82ms (View: 55, DB: 12) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-05-21 21:46:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (11.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 81ms (View: 8, DB: 12) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-05-21 21:46:45) [POST]
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "login"=>"aroop"}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.login) = 'aroop') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:46:45', `perishable_token` = 'WTUBoeanfEQZPdRzN6m9', `last_login_at` = '2009-05-22 02:39:07', `current_login_at` = '2009-05-22 04:46:45', `login_count` = 8, `last_request_at` = '2009-05-22 04:46:45' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/account
+Completed in 450ms (DB: 5) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 21:46:45) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (11.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:46:45', `perishable_token` = 'b1grB12vE2FonElUrKyK', `last_request_at` = '2009-05-22 04:46:45' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 229ms (View: 33, DB: 13) | 200 OK [http://localhost/account]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:46:56) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;35;1mUser Columns (11.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:46:56', `perishable_token` = 'qR6uMr9OMI8E0Hw8xdqM', `last_request_at` = '2009-05-22 04:46:56' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mPinlessNumber Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;36;1mPinlessNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (11.8ms)
+Completed in 196ms (View: 61, DB: 16) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#update (for 127.0.0.1 at 2009-05-21 21:47:06) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "id"=>"1", "user_id"=>"1", "controller"=>"pinless_numbers", "pinless_number"=>{"ani_or_phonenumber"=>"9163077863"}}
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:06', `perishable_token` = 'P1s9aJi-9Ti7a1ZCWZ0Z', `last_request_at` = '2009-05-22 04:47:06' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mPinlessNumber Load (12.6ms)[0m   [0;1mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPinlessNumber Update (27.4ms)[0m   [0;1mUPDATE `pinless_numbers` SET `updated_at` = '2009-05-22 04:47:06', `ani_or_phonenumber` = '9163077863' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/pinless_numbers
+Completed in 160ms (DB: 50) | 302 Found [http://localhost/users/1/pinless_numbers/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:06) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;36;1mUser Columns (75.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:07', `perishable_token` = 'JqoUPPJ3Coa72Q-JI2PI', `last_request_at` = '2009-05-22 04:47:07' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;35;1mPinlessNumber Load (0.3ms)[0m   [0mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (9.1ms)
+Completed in 204ms (View: 23, DB: 79) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 21:47:09) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Columns (11.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:10', `perishable_token` = 'ARxeqxZk7QW853ZOieAk', `last_request_at` = '2009-05-22 04:47:10' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 212ms (View: 10, DB: 13) | 200 OK [http://localhost/users/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:11) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:11', `perishable_token` = 'OGgOB4f95cCmAzlqks_u', `last_request_at` = '2009-05-22 04:47:11' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;35;1mPinlessNumber Load (0.3ms)[0m   [0mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (9.5ms)
+Completed in 143ms (View: 22, DB: 16) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#new (for 127.0.0.1 at 2009-05-21 21:47:13) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:13', `perishable_token` = 'GNCKaZYqNallOslFYv8N', `last_request_at` = '2009-05-22 04:47:13' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mPinlessNumber Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPinlessNumber Create (0.3ms)[0m   [0;1mINSERT INTO `pinless_numbers` (`created_at`, `updated_at`, `user_id`, `ani_or_phonenumber`) VALUES('2009-05-22 04:47:13', '2009-05-22 04:47:13', 1, NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/pinless_numbers
+Completed in 115ms (DB: 7) | 302 Found [http://localhost/users/1/pinless_numbers/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:13) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.5ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:13', `perishable_token` = 'g7IyNp680wGvgiJzTA2W', `last_request_at` = '2009-05-22 04:47:13' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;35;1mPinlessNumber Load (0.3ms)[0m   [0mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (8.8ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (5.9ms)
+Completed in 141ms (View: 28, DB: 7) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#update (for 127.0.0.1 at 2009-05-21 21:47:20) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "id"=>"2", "user_id"=>"1", "controller"=>"pinless_numbers", "pinless_number"=>{"ani_or_phonenumber"=>"8584057125"}}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:20', `perishable_token` = 'rn6k2LeeJdUd1pNCCB7-', `last_request_at` = '2009-05-22 04:47:20' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mPinlessNumber Load (0.7ms)[0m   [0;1mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPinlessNumber Update (0.3ms)[0m   [0;1mUPDATE `pinless_numbers` SET `updated_at` = '2009-05-22 04:47:20', `ani_or_phonenumber` = '8584057125' WHERE `id` = 2[0m
+  [4;35;1mSQL (34.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/pinless_numbers
+Completed in 153ms (DB: 43) | 302 Found [http://localhost/users/1/pinless_numbers/2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:20) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;36;1mUser Columns (11.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:20', `perishable_token` = 'A8Vu-DwiTEHsXvDXWPJi', `last_request_at` = '2009-05-22 04:47:20' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;35;1mPinlessNumber Load (0.3ms)[0m   [0mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (8.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (6.0ms)
+Completed in 151ms (View: 29, DB: 16) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 21:47:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (11.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:23', `perishable_token` = 'njd_sWAxO_gr8Rgepxw3', `last_request_at` = '2009-05-22 04:47:23' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 114ms (View: 10, DB: 13) | 200 OK [http://localhost/users/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:26) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;35;1mUser Columns (12.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:26', `perishable_token` = 'aTyqSyBedAoPLJS7O9UB', `last_request_at` = '2009-05-22 04:47:26' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mPinlessNumber Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;36;1mPinlessNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (9.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (6.5ms)
+Completed in 149ms (View: 29, DB: 17) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:29) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"speeddial_numbers"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:29', `perishable_token` = 'PxTCt-GhscQYaQrQvCzO', `last_request_at` = '2009-05-22 04:47:29' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSpeeddialNumber Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering speeddial_numbers/index
+  [4;36;1mSpeeddialNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered speeddial_numbers/_speeddial_number (13.4ms)
+Completed in 169ms (View: 58, DB: 7) | 200 OK [http://localhost/users/1/speeddial_numbers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#update (for 127.0.0.1 at 2009-05-21 21:47:44) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "id"=>"1", "user_id"=>"1", "controller"=>"speeddial_numbers", "speeddial_number"=>{"number"=>"011919885089712", "entry"=>"11", "description"=>"Sweth india"}}
+  [4;36;1mUser Columns (11.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:44', `perishable_token` = 'Ahie1bJ0iD4fhSW8ukRi', `last_request_at` = '2009-05-22 04:47:44' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSpeeddialNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;36;1mSpeeddialNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSpeeddialNumber Update (0.4ms)[0m   [0;1mUPDATE `speeddial_numbers` SET `updated_at` = '2009-05-22 04:47:44', `number` = '011919885089712', `entry` = 11, `description` = 'Sweth india' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/speeddial_numbers
+Completed in 234ms (DB: 16) | 302 Found [http://localhost/users/1/speeddial_numbers/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:44) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"speeddial_numbers"}
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:44', `perishable_token` = 'ObgiXTbQLIdLwQ9VpXhK', `last_request_at` = '2009-05-22 04:47:44' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSpeeddialNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering speeddial_numbers/index
+  [4;35;1mSpeeddialNumber Load (0.3ms)[0m   [0mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered speeddial_numbers/_speeddial_number (10.5ms)
+Completed in 136ms (View: 24, DB: 7) | 200 OK [http://localhost/users/1/speeddial_numbers]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#new (for 127.0.0.1 at 2009-05-21 21:47:49) [GET]
+  Parameters: {"action"=>"new", "user_id"=>"1", "controller"=>"speeddial_numbers"}
+  [4;35;1mUser Columns (12.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:49', `perishable_token` = '4A5S1xjYKy362dmSTJRC', `last_request_at` = '2009-05-22 04:47:49' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSpeeddialNumber Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSpeeddialNumber Create (0.3ms)[0m   [0;1mINSERT INTO `speeddial_numbers` (`number`, `created_at`, `updated_at`, `user_id`, `entry`, `description`) VALUES(NULL, '2009-05-22 04:47:49', '2009-05-22 04:47:49', 1, NULL, NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/speeddial_numbers
+Completed in 131ms (DB: 16) | 302 Found [http://localhost/users/1/speeddial_numbers/new]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#index (for 127.0.0.1 at 2009-05-21 21:47:49) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"speeddial_numbers"}
+  [4;36;1mUser Columns (4.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:47:49', `perishable_token` = 'uWnQmc4cwMzO6w1dLFJu', `last_request_at` = '2009-05-22 04:47:49' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSpeeddialNumber Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering speeddial_numbers/index
+  [4;35;1mSpeeddialNumber Load (0.3ms)[0m   [0mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered speeddial_numbers/_speeddial_number (10.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered speeddial_numbers/_speeddial_number (7.1ms)
+Completed in 146ms (View: 31, DB: 9) | 200 OK [http://localhost/users/1/speeddial_numbers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#update (for 127.0.0.1 at 2009-05-21 21:48:04) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "id"=>"2", "user_id"=>"1", "controller"=>"speeddial_numbers", "speeddial_number"=>{"number"=>"011919885089713", "entry"=>"12", "description"=>"Rajesh"}}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:04', `perishable_token` = 'VNJkIB9AaXSjxFhxJF_D', `last_request_at` = '2009-05-22 04:48:04' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSpeeddialNumber Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;36;1mSpeeddialNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSpeeddialNumber Update (0.3ms)[0m   [0;1mUPDATE `speeddial_numbers` SET `updated_at` = '2009-05-22 04:48:04', `number` = '011919885089713', `entry` = 12, `description` = 'Rajesh' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/1/speeddial_numbers
+Completed in 220ms (DB: 8) | 302 Found [http://localhost/users/1/speeddial_numbers/2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#index (for 127.0.0.1 at 2009-05-21 21:48:04) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"speeddial_numbers"}
+  [4;36;1mUser Columns (8.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:04', `perishable_token` = 'NyOfdVJjc3BhS8kpuCbn', `last_request_at` = '2009-05-22 04:48:04' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSpeeddialNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering speeddial_numbers/index
+  [4;35;1mSpeeddialNumber Load (0.3ms)[0m   [0mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered speeddial_numbers/_speeddial_number (9.9ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered speeddial_numbers/_speeddial_number (7.3ms)
+Completed in 146ms (View: 31, DB: 12) | 200 OK [http://localhost/users/1/speeddial_numbers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-21 21:48:26) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"1", "controller"=>"pinless_numbers"}
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:26', `perishable_token` = 'eDwZqT9D4UYKd3FGMNJ2', `last_request_at` = '2009-05-22 04:48:26' WHERE `id` = 1[0m
+  [4;36;1mSQL (374.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mPinlessNumber Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;35;1mPinlessNumber Load (0.3ms)[0m   [0mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (9.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered pinless_numbers/_pinless_number (6.1ms)
+Completed in 518ms (View: 28, DB: 390) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 21:48:31) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:31', `perishable_token` = 'RDUEAWDrxUkA88uij7VZ', `last_request_at` = '2009-05-22 04:48:31' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 108ms (View: 10, DB: 13) | 200 OK [http://localhost/users/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show to html (for 127.0.0.1 at 2009-05-21 21:48:34) [GET]
+  Parameters: {"format"=>"html", "action"=>"show", "id"=>"cdr", "controller"=>"users"}
+  [4;35;1mUser Columns (14.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:34', `perishable_token` = 'Ju4k82dbReJq3iFm8IhW', `last_request_at` = '2009-05-22 04:48:34' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 111ms (View: 10, DB: 16) | 200 OK [http://localhost/users/cdr.html]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-05-21 21:48:39) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (12.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:39', `perishable_token` = 'E7dSqSBmqMNqICtl3muY', `last_request_at` = '2009-05-22 04:48:39' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/edit
+Completed in 279ms (View: 79, DB: 14) | 200 OK [http://localhost/users/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-05-21 21:48:43) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (11.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:43', `perishable_token` = 'srUs4foUcVm3LeX9nWRK', `last_request_at` = '2009-05-22 04:48:43' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:48:43', `perishable_token` = 'Vg8CGlzU789VhfJMrSxH', `last_request_at` = '2009-05-22 04:48:43' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 114ms (DB: 15) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:48:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 73ms (View: 55, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-05-21 21:48:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (11.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 81ms (View: 8, DB: 12) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:48:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 80ms (View: 54, DB: 12) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-21 21:49:16) [GET]
+  Parameters: {"plan"=>"Max", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (11.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 277ms (View: 102, DB: 12) | 200 OK [http://localhost/users/new?plan=Max]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:49:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (11.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 83ms (View: 57, DB: 12) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:51:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mUser Columns (12.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 79ms (View: 53, DB: 12) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-05-21 21:52:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (11.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 84ms (View: 10, DB: 12) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-05-21 21:52:09) [POST]
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "login"=>"aroop"}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.login) = 'aroop') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:09', `perishable_token` = 'pmhTpLvYrFHT1q5XElcR', `last_login_at` = '2009-05-22 04:46:45', `current_login_at` = '2009-05-22 04:52:09', `login_count` = 9, `last_request_at` = '2009-05-22 04:52:09' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/account
+Completed in 95ms (DB: 4) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 21:52:09) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:09', `perishable_token` = 'TYOp7MPRrn3tNwHzMF3Z', `last_request_at` = '2009-05-22 04:52:09' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 196ms (View: 9, DB: 4) | 200 OK [http://localhost/account]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-05-21 21:52:13) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:13', `perishable_token` = 'KUOhaddB--ZDS7gAGTlj', `last_request_at` = '2009-05-22 04:52:13' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:13', `perishable_token` = 'zkFolvWEl_60eKPUoClW', `last_request_at` = '2009-05-22 04:52:13' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 105ms (DB: 6) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:52:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 72ms (View: 55, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:52:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mUser Columns (13.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 86ms (View: 58, DB: 14) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:52:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (11.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 79ms (View: 53, DB: 12) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2009-05-21 21:52:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (11.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 86ms (View: 10, DB: 12) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2009-05-21 21:52:37) [POST]
+  Parameters: {"user_session"=>{"password"=>"[FILTERED]", "login"=>"aroop"}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.login) = 'aroop') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:38', `perishable_token` = 'ysN-ERtHjF2qjun9etc8', `last_login_at` = '2009-05-22 04:52:09', `current_login_at` = '2009-05-22 04:52:38', `login_count` = 10, `last_request_at` = '2009-05-22 04:52:38' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/account
+Completed in 94ms (DB: 4) | 302 Found [http://localhost/user_sessions]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-21 21:52:38) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:38', `perishable_token` = 'loQ-MdP__htCdHl5aen8', `last_request_at` = '2009-05-22 04:52:38' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+Completed in 99ms (View: 9, DB: 4) | 200 OK [http://localhost/account]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2009-05-21 21:52:40) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:40', `perishable_token` = 'OzysU8l61VrMx3_KWH2r', `last_request_at` = '2009-05-22 04:52:40' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-22 04:52:40', `perishable_token` = 'KUOo87adtaLmKrF_gs0e', `last_request_at` = '2009-05-22 04:52:40' WHERE `id` = 1[0m
+  [4;36;1mSQL (17.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 127ms (DB: 32) | 302 Found [http://localhost/logout]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:52:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 73ms (View: 54, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-21 21:52:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mUser Columns (12.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 180ms (View: 154, DB: 12) | 200 OK [http://localhost/]

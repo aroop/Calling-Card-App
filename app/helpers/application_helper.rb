@@ -4,7 +4,7 @@ module ApplicationHelper
   # Outputs the corresponding flash message if any are set
   def flash_messages
     messages = []
-    messages << content_tag(:div, nil, :class => "break", :style => "height: 10px")
+    messages << content_tag(:div, nil, :class => "break", :style => "height: 10px") unless flash.blank?
     %w(notice warning error).each do |msg|
       messages << content_tag(:div, html_escape(flash[msg.to_sym]), :class => "flash-#{msg}") unless flash[msg.to_sym].blank?
     end
