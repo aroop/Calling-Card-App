@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090521022049) do
+ActiveRecord::Schema.define(:version => 20090522054301) do
+
+  create_table "cdrs", :force => true do |t|
+    t.datetime "calldate"
+    t.string   "src"
+    t.string   "dst"
+    t.string   "channel"
+    t.string   "dstchannel"
+    t.string   "didnumber"
+    t.integer  "duration"
+    t.integer  "billsec"
+    t.string   "disposition"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pinless_numbers", :force => true do |t|
     t.string   "ani_or_phonenumber"
