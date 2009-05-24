@@ -27,4 +27,9 @@ module ApplicationHelper
     controller_is(c) && action_is(a)
   end
   
+  def voucher(size = 10)
+      chars = ((0..9).to_a)
+      (1..size).collect{|a| chars[rand(chars.size)] }.join
+  end
+  
 end

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   attr_accessor :creditcard
   
   validate_on_create :validate_card
+  validate_on_create :valid_plan?
+  
+  has_one :voucher, :dependent => :destroy
   
   has_many :pinless_numbers
 
@@ -24,6 +27,7 @@ class User < ActiveRecord::Base
   end
   
   private
+  
   def validate_card
     unless creditcard.valid?
       creditcard.errors.full_messages.each do |message|
@@ -32,5 +36,8 @@ class User < ActiveRecord::Base
     end
   end
   
+  def valid_plan?
+    errors.add_to_base("Invalid plan selected.") unless @plan
+  end
   
 end
