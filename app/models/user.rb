@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   #attr_accessor :card_number, :card_verification, :card_type
   attr_accessor :creditcard
   
-  #validate_on_create :validate_card
+  validate_on_create :validate_card
   
   has_many :pinless_numbers
 
@@ -23,5 +23,15 @@ class User < ActiveRecord::Base
   def full_name
       "#{first_name} #{last_name}"
   end
+  
+  private
+  def validate_card
+    unless creditcard.valid?
+      creditcard.errors.full_messages.each do |message|
+        errors.add_to_base message
+      end
+    end
+  end
+  
   
 end

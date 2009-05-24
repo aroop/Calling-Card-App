@@ -29,7 +29,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string      :zip_code,                 :null => false
       t.string      :phone_number,             :null => false
       t.references  :plan,                     :null => false
-      t.date        :card_expires_on,          :null => false
       t.timestamps
     end
   end

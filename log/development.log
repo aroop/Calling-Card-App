@@ -11991,3 +11991,1053 @@ Processing UsersController#create (for 127.0.0.1 at 2009-05-24 01:57:08) [POST]
 Rendering template within layouts/application
 Rendering users/new
 Completed in 175ms (View: 31, DB: 16) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 01:58:44) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"24", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"1", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (12.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (10.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '8147e6c0098b9cb29e59dec8caeff31257dc701053054d337e92c71de033ac69901d127a6f75834d6218d834560c3d32516774b33040b5246fee42dda899ab67') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'F0D37qUVaOAdLAVYwfYR') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 311ms (View: 30, DB: 25) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 01:59:23) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"24", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"1", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (12.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '409799b532b7bf7dab1edaccfdca75cc591cc62f8298f8ba88b78f2f2dc32c631ddfba472662711682aa107c4da0a01d6f1765776e0c00f59120aff7bdd09aef') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'AbbTE-eAFz3kQi5EqlKA') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+
+NameError (undefined local variable or method `credit_card' for #<User:0x21bb9ec>):
+  app/models/user.rb:29:in `validate_card'
+  app/controllers/users_controller.rb:18:in `create'
+
+Rendered rescues/_trace (145.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 01:59:49) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"24", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"1", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (12.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '52c9f1ea646e82279fb2361bd08cad8d9a267272e26851e635c5b80783d390800fd1eaf4ddb5f575efb28b9e9930ff7b1f346e81fc6f373a8f2300713f55d011') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'Lmenvbb6x812BT6qAeUW') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #47 of app/views/users/new.html.erb:
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_year => true, :add_month_numbers => true %>
+48: 			</div>
+49: 			<div class="input">
+50: 				<label>Card Verification Value (CVV):</label>
+
+    app/views/users/new.html.erb:47
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (147.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:00:04) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;36;1mPlan Columns (11.4ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mUser Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 117ms (View: 72, DB: 15) | 200 OK [http://localhost/pricing]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:00:05) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 257ms (View: 167, DB: 5) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:00:07) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"24", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"1", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (11.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ebbba9b7b2759837934044c60196060b3e7eac29fe447139768e6f19412699e8298142ed74a6a43bf9a9850273812e4913df01b297fefea9f9664f32fb74ad8e') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY '5voNrUMzN6-UpoC_r_yC') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #47 of app/views/users/new.html.erb:
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_year => true, :add_month_numbers => true %>
+48: 			</div>
+49: 			<div class="input">
+50: 				<label>Card Verification Value (CVV):</label>
+
+    app/views/users/new.html.erb:47
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (145.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:00:58) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"24", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"1", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (12.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '315f9e1b8cee55fe90fc70d792b52c2e95e618926c8c635d30139fd14458f59fafcceb4436e7abe3633da0e63bcef2105275906a0a35c44784f24a5784ffc7a8') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'nfJrKuxTRF8spyF6yreQ') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 308ms (View: 41, DB: 15) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:01:28) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"24", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"1", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (12.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ac2ff973c95f283ba27fc056f008d87eceb5df36b1a46adf4d42b00088fae2fccd611370e05bd51ee377dce9fa7ee4470b2d81b474d41adb91e839aa9bb8cfd5') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'xF6gti1SwPl7Y1lEEer8') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :add_month_numbers => true %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (144.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:01:34) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;35;1mPlan Columns (12.8ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 246ms (View: 198, DB: 16) | 200 OK [http://localhost/pricing]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:01:35) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (11.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 138ms (View: 39, DB: 14) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:01:37) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a2e129477215f5459ea49d48b222dc595206caabdee9534abe406c28f5e4bd177ad9031e9439c60872ed59afd0143979d9b55c908c41af6797851392d5773ef4') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'jWLfXtikmw9SfsVqDmfU') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :add_month_numbers => true %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (275.8ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:02:03) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 150ms (View: 50, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:02:06) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.6ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a133b330cc0971f0c83e346c0481c06af8067857457a08a8cc21f76b8f52385fb6135daf6cf3e58e903c91dc37e7f53b388ae8cafb45e198183faa1b0381f688') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY '1dedhu8K4EZUehZS18Pf') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (266.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:02:51) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 99ms (View: 65, DB: 5) | 200 OK [http://localhost/pricing]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:02:52) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 144ms (View: 40, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:03:12) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"3", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2010", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (13.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '6a28eb666011d54171abfaf6435c6e5d47506e2587769720200a8243e09c0d145339ce0593b736263faf07be9eb7fe86f84b361876b23bcc04bd41e5d2e945e4') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'q-OBUcmaeQIKCQ2fSH0I') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (149.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:04:19) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 145ms (View: 47, DB: 14) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:04:21) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"3", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (11.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5b7701a7bc9ff3249341c652373262bbdca1d87fc76c23a79b5dd25db8a7b5e1e627899a696a8f6a8c876e9a26ac51a8541c35e51c687ee25390edded4c25b9b') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'FTQZJ-hpu9AHrHGxS-Z3') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%#= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (148.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:04:28) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 148ms (View: 48, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:04:30) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '9e41a29b0066d841c1ca9a7814a254e57b53cb15e363e63533efc7277002a46ea7ec6b4714065a053aaf3a3e23b53308a4fb74fe3e2b0b52b6c04951ece43798') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'AVX1mlFuiPRaqEHLpH6s') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 284ms (View: 27, DB: 6) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:04:49) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;35;1mPlan Columns (14.5ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 119ms (View: 69, DB: 18) | 200 OK [http://localhost/pricing]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:04:50) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 158ms (View: 56, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:04:53) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (12.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '04336d41af989324fa70fcdfd9508854c7ea3aae00adc9e0f9d5a6f60f903263454091ca35f95bc8c7f6a72205b308c86607bedd7fcf209d0b7d0f09b1b8fd25') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'VnREVwWXB-KLgM5LRnzX') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (272.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:06:12) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (11.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 146ms (View: 48, DB: 14) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:06:15) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (11.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.9ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '21f0a318b78754afd306cfc8e8ebd14308968fd1d8bd7e75ebead9d88c74fc8f51a32c56d479efa0bed34b00f25e69217d0ce117955b24e75d8f97b9ac01c7ec') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'CmxfwmsrdEq8UI6N9ahN') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 176ms (View: 28, DB: 16) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:06:43) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;36;1mPlan Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 115ms (View: 70, DB: 15) | 200 OK [http://localhost/pricing]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:06:45) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 165ms (View: 64, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:06:53) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (12.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '300d83aa1c60659bdd6a62b942f96edab5e1184db57657da543f23aa3900d6f80140e3864c4069e9d27b5b14725d75821c4227abd073f09336da4dd8cf3499d4') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'Kc79iZ9_ZCpC1HqH-6r7') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (266.5ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:07:23) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 135ms (View: 38, DB: 17) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:07:28) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"8", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2009", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (12.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.5ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'f740d76c44b83f61bb404046d7bb4a40bd9f9426915a61c4cbfd34407c5d5b7b7dc554cf6f5d24ef4c75c845d0ca37d2bd45818b45c0b3143998815439907afa') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'VFlFIpO0jshikFH9AT_G') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (264.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:07:44) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"8", "month(3i)"=>"1", "type"=>"visa", "last_name"=>"", "verification_value"=>"", "year(1i)"=>"2010", "year(2i)"=>"5", "year(3i)"=>"24", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ab4de34e7f21d76cc27a26c918446df66db0daa3ca357e10da38b93809f5ab9451c5fa10a442cdab83802a985e20d62ab8b2b3228c4bfcd23867d02c1130c24f') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY '0YYulCslQl3JYaZUn5ci') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :year, :discard_day => true,  :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (147.6ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:09:34) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for #<ActiveMerchant::Billing::CreditCard::ExpiryDate:0x22ac20c>) on line #47 of app/views/users/new.html.erb:
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%#= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :expiry_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+50: 				<label>Card Verification Value (CVV):</label>
+
+    app/views/users/new.html.erb:47
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:10:in `new'
+
+Rendered rescues/_trace (145.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:09:43) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;35;1mPlan Columns (12.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 115ms (View: 68, DB: 16) | 200 OK [http://localhost/pricing]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:09:46) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for #<ActiveMerchant::Billing::CreditCard::ExpiryDate:0x2329a40>) on line #47 of app/views/users/new.html.erb:
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%#= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+47: 				<%= cc.date_select :expiry_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+50: 				<label>Card Verification Value (CVV):</label>
+
+    app/views/users/new.html.erb:47
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:10:in `new'
+
+Rendered rescues/_trace (143.6ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:10:53) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for #<ActiveMerchant::Billing::CreditCard::ExpiryDate:0x1f57958>) on line #47 of app/views/users/new.html.erb:
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.select :month, (1..12) %>
+47: 				<%= cc.date_select :expiry_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+50: 				<label>Card Verification Value (CVV):</label>
+
+    app/views/users/new.html.erb:47
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:10:in `new'
+
+Rendered rescues/_trace (268.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:11:01) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (11.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 145ms (View: 45, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:11:40) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (11.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 144ms (View: 47, DB: 14) | 200 OK [http://localhost/users/new?plan=2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:13:22) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 151ms (View: 51, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:13:24) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"1", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (12.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'e73d2add65f3e591a36131157f847e878e1eebaa7cf5983b68ee5ffd78059da01f816ccdc18c420a2530136724dc2629fd3f09fa370e6cb3de7db2fe59d01312') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'n37QEMGpepkzL4hQ1iyC') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `change' for 0:Fixnum) on line #47 of app/views/users/new.html.erb:
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%#= cc.select :month, (1..12) %>
+47: 				<%= cc.date_select :month, :discard_day => true, :discard_year => true, :add_month_numbers => true %>
+48: 				
+49: 				<%= cc.select :year, (Date.today.year..Date.today.year+10) %>
+50: 			</div>
+
+    app/views/users/new.html.erb:47
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:22:in `create'
+
+Rendered rescues/_trace (261.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:13:37) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"month(1i)"=>"2009", "number"=>"", "month(2i)"=>"5", "month(3i)"=>"1", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (14.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '226007d2ef61cf21c623a9e902aaff8dda280c6c7dbd5db5e4894c586cde2b6626fd57ac20e9076ee95d9de3dd8afd599b9f1b44def02305d09f5ac9d7a7fff9') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'Wu_NakovUisRAKjtqWTm') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 187ms (View: 39, DB: 18) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:15:05) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;35;1mPlan Columns (11.7ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 113ms (View: 68, DB: 15) | 200 OK [http://localhost/pricing]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:15:06) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (11.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `merge' for 1..12:Range) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.select :month, Date.today.month, (1..12) %>
+47: 				<%= cc.select :year, (Date.today.year..Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:10:in `new'
+
+Rendered rescues/_trace (143.5ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:15:20) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (12.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+
+ActionView::TemplateError (undefined method `merge' for 5:Fixnum) on line #46 of app/views/users/new.html.erb:
+43: 			</div>
+44: 			<div class="input">
+45: 				<label>Expiration Date:</label>
+46: 				<%= cc.select :month, (1..12), Date.today.month %>
+47: 				<%= cc.select :year, (Date.today.year..Date.today.year+10) %>
+48: 			</div>
+49: 			<div class="input">
+
+    app/views/users/new.html.erb:46
+    app/views/users/new.html.erb:27
+    app/views/users/new.html.erb:7
+    app/controllers/users_controller.rb:10:in `new'
+
+Rendered rescues/_trace (266.0ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:18:26) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 149ms (View: 48, DB: 15) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:18:42) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"5", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (13.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '9ea1210fd92364200635387c8fd3071521af2458cdc3c6e6f06286a1661174ba9ac90321cda5790a10d256e7df0bc3984ac7aca160986de7cfea072b33a54489') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'SzkrViTW04Y13dAyorsA') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 171ms (View: 26, DB: 17) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:18:55) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"5", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (12.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '18ad50dd860887386b8aa456580a152f4cfb6a098788d8a58acce98c35d4b3d6c19c50fd6cf5906e556577969683fcf9ea85015a8661b135553d40526148ac5e') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'g10E_WX8fbZ6yyzjepxJ') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 171ms (View: 26, DB: 15) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#pricing (for 127.0.0.1 at 2009-05-24 02:18:58) [GET]
+  Parameters: {"action"=>"pricing", "controller"=>"static"}
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/pricing
+  [4;35;1mPlan Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 106ms (View: 70, DB: 6) | 200 OK [http://localhost/pricing]
+  [4;35;1mSQL (0.7ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-24 02:19:00) [GET]
+  Parameters: {"plan"=>"2", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (12.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.6ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 150ms (View: 39, DB: 16) | 200 OK [http://localhost/users/new?plan=2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:19:05) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"5", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (12.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '5da4488ec867e49387f1993fcb8f6b80b4ca11ec131f32a8f8437020b236dfea520e4c637a59e60af4ad21336da21c99f3d4ddbb3fa2bda50a30510f17e29d82') LIMIT 1[0m
+  [4;35;1mUser Exists (0.8ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'RWgZcWcZ1vB3MKR9Ka_Z') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 178ms (View: 28, DB: 17) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:19:34) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"6", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;35;1mUser Columns (12.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '55a66957cc1d7c4f38db186e9f3d5b8b2cd980e323fe7d3ecb6528f64c44cfc7508363ca8d93ea5acbd2a345b33c5812b672906c8a7ce0521fa675c5e392aaa7') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'oYAgeLxRaM9Nu_YTLdos') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 290ms (View: 27, DB: 16) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:19:45) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"5", "type"=>"visa", "year"=>"2011", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"", "email"=>""}}
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPlan Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b46c279d1e038e0344619140ae9eea6c0b886adbc118ff82a4c9cba12c253f485970b9523885625530fd750726c2b501a5f74e9b155e21cf7fb6c6d4d33fefba') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'I_9WiJ5lj1UvMRcHB6ri') LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 172ms (View: 27, DB: 7) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (1.9ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:19:53) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"5", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"ajay", "email"=>""}}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (12.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'ajay') LIMIT 1[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '59d3f5158ce869093ee1b25e7a38a91b9703f919eb55427a5a58fe368a6ef5f988449eec95b4f3187eafbb9103590a9cebf33e5b800fed83f1ea97aa9bcf788f') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'jzIGZZAldtl0ZHFot3ke') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 173ms (View: 26, DB: 20) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:20:02) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"1", "month"=>"5", "type"=>"master", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"ajay", "email"=>""}}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'ajay') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '20a19f560d42a2e76887b37fc143b72ba6accd3b64deb7abc86a08834c768e1f4f8caa7098987b769bedef2d42ce9591ec010379b3bdc71c2af4118ef277ff02') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'sXB-_NBkF8cWPydVX1Pd') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 162ms (View: 26, DB: 7) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-24 02:22:16) [POST]
+  Parameters: {"plan"=>"2", "active_merchant_billing_credit_card"=>{"number"=>"", "month"=>"5", "type"=>"visa", "year"=>"2009", "last_name"=>"", "verification_value"=>"", "first_name"=>""}, "action"=>"create", "authenticity_token"=>"9g0Kyn9rQCgSf72mr91TXiOK1jnONvXhRbf2NmD2GY8=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"ajay", "email"=>"kishore"}}
+  [4;35;1mUser Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'kishore') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'ajay') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'adfe09cb979b4eeb432151c56c3bcadcb185deb8afebd1206b954a80291c26981e1297b6426d2a709b9b1eb423dfe5ecb9e9df35b58cf4ba23b055e065e39b35') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY '1afsaOQ_4o4q6fIIOBzg') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 555ms (View: 24, DB: 7) | 200 OK [http://localhost/users]
