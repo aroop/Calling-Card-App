@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   
   acts_as_authentic
   
-  #attr_accessor :card_number, :card_verification, :card_type
   attr_accessor :creditcard
   
   validate_on_create :validate_card

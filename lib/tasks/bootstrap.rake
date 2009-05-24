@@ -15,8 +15,17 @@ namespace :db do
         Plan.create(plan)
       end
     end
+    
+    cc = ActiveMerchant::Billing::CreditCard.new
+    cc.number = 4012888888881881
+    cc.month = 5
+    cc.year = 2012
+    cc.verification_value = '012'
+    cc.type = 'visa'
+    cc.first_name = 'Ajay kumar'
+    cc.last_name = 'Guthikonda'
 
-    user = User.create
+    user = User.create(:creditcard => cc)
     user.login = 'aroop'
     user.first_name = 'Ajay kumar'
     user.last_name = 'Guthikonda'
@@ -24,7 +33,6 @@ namespace :db do
     user.password = 'ajatha'
     user.password_confirmation = 'ajatha'
     user.plan = Plan.find(:first)
-    user.card_expires_on = Date.new(2012, 02, 22)
     user.save!
     #user = User.new(:first_name => 'Ajay Kumar', :last_name => 'Guthikonda', :login => 'aroop', 
     #:password => 'ajatha', :password_confirmation => 'ajatha', :email => 'aroopchandra@gmail.com')

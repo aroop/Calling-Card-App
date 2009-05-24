@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20090524035704) do
     t.string   "zip_code",            :default => "", :null => false
     t.string   "phone_number",        :default => "", :null => false
     t.integer  "plan_id",                             :null => false
-    t.date     "card_expires_on",                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
