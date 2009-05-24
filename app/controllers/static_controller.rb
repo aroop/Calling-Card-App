@@ -21,10 +21,11 @@ class StaticController < ApplicationController
   end
 
   def pricing
+    @plans = Plan.find(:all)
   end
 
   def index
-    
+    @plans = Plan.find(:all)
   end
 
 end

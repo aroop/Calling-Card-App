@@ -2,21 +2,24 @@ class UsersController < ApplicationController
   
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :load_defaults, :only => [:new, :create]
   
   layout "account"
   
   def new
-    @user = User.new
-    render :action => "new", :layout => "application"
+    render :layout => "application"
   end
   
   def create
-    @user = User.new(params[:user])
+    @user.first_name = @creditcard.first_name
+    @user.last_name = @creditcard.last_name
+    @user.creditcard = @creditcard
+    @user.plan = @plan
     if @user.save
       flash[:notice] = "Account registered!"
       redirect_back_or_default account_url
     else
-      render :action => 'new'
+      render :action => 'new',  :layout => "application"
     end
   end
   
@@ -41,6 +44,14 @@ class UsersController < ApplicationController
 			format.html
     	format.xml  { render :xml => @user }
     end
+  end
+  
+  protected
+  
+  def load_defaults
+    @user = User.new(params[:user])
+    @creditcard = ActiveMerchant::Billing::CreditCard.new(params[:creditcard])
+    @plan = params[:plan]? Plan.find(params[:plan]) : Plan.find_by_name('Plus')    
   end
   
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090522054301) do
+ActiveRecord::Schema.define(:version => 20090524035704) do
 
   create_table "cdrs", :force => true do |t|
     t.datetime "calldate"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(:version => 20090522054301) do
   create_table "pinless_numbers", :force => true do |t|
     t.string   "ani_or_phonenumber"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "minutes"
+    t.decimal  "price",       :precision => 10, :scale => 2
+    t.integer  "phones"
+    t.boolean  "recursive"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20090522054301) do
     t.string   "state",               :default => "", :null => false
     t.string   "zip_code",            :default => "", :null => false
     t.string   "phone_number",        :default => "", :null => false
+    t.integer  "plan_id",                             :null => false
+    t.date     "card_expires_on",                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

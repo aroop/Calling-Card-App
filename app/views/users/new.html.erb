@@ -1,21 +1,15 @@
 <!-- BEGIN main -->
 <div id="main">
-		<h2><%= @page_title = 'India ISD 1000 minute plan' %></h2>
+		<h2><%= @page_title = "India ISD '#{@plan.name}' Plan" %></h2>
+		<h3>Monthly cost in (USD): $<%= @plan.amount -%></h3>
 
-<p>This is a recurring charge that will be billed each month.</p>
+<p>Our plans automatically renew each month, but you may <strong>cancel</strong> at any time. </p>
 	<% form_for(@user) do |f| %>
+	<%= hidden_field_tag 'plan', @plan.id %>
 		<%= f.error_messages %>
 			<div class="first input">
 				<label>Login:</label>
 				<%= f.text_field :login, :class=>"text", :size=>"48" %>
-			</div>
-			<div class="input">
-				<label>First Name:</label>
-				<%= f.text_field :first_name, :class=>"text", :size=>"48" %>
-			</div>
-			<div class="input">
-				<label>Last Name:</label>
-				<%= f.text_field :last_name, :class=>"text", :size=>"48" %>
 			</div>
 			<div class="input">
 				<label>Email:</label>
@@ -29,15 +23,39 @@
 				<label>Confirm Password:</label>
 				<%= f.password_field :password_confirmation, :class=>"text", :size=>"48" %>
 			</div>
+
+			<% fields_for @creditcard do |cc| %>
 			<div class="input">
-				<label>Phone Number:</label>
-				<%= f.text_field :phone_number, :class=>"text", :size=>"48" %>
+				<label>First Name:</label>
+				<%= cc.text_field :first_name, :class=>"text", :size=>"48" %>
 			</div>
-			<div class="input buttons">
+			<div class="input">
+				<label>Last Name:</label>
+				<%= cc.text_field :last_name, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<label>Credit Card Type:</label>
+				<%= cc.select :type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+			</div>
+			<div class="input">
+				<label>Credit Card Number:</label>
+				<%= cc.text_field :number, :class=>"text", :size=>"48" %>
+			</div>
+			<div class="input">
+				<label>Expiration Date:</label>
+				<%= cc.date_select :month, :discard_day => true, :discard_month => true, :start_year => Date.today.year, :end_year => (Date.today.year+10) %>
+				<%= cc.date_select :year, :discard_day => true,  :discard_year => true, :add_month_numbers => true %>
+			</div>
+			<div class="input">
+				<label>Card Verification Value (CVV):</label>
+				<%= cc.text_field :verification_value, :class=>"text", :size=>"48" %>
+			</div>
+
+		  <% end %>
+				
+			<div class="buttons">
 				<h4>By Signing up you are accepting Terms of Service.</h4>
 				<p>Do not press the purchase button more than once.</p>
-			</div>			
-			<div class="input buttons">
 				<input type="submit" value="Purchase" class="button"/>
 			</div>
 			<% end %>
@@ -45,18 +63,27 @@
 <!-- END main -->
 
 <!-- BEGIN sidebar -->
-<div id="sidebar"><div class="buffer">
-
-	<h4>Pinless Dialing</h4>
-	<h4>15 Speed dial numbers</h4>
-	<h4>30 Day Money Back</h4>
-	<h4>1 Minute Rounding</h4>
-	<h4>Superior voice quality</h4>
-	<h4>No Connection Fees</h4>
-	<h4>Instant Activation</h4>
-	<h4>Last number redial</h4>
-	
-</div></div>
+<div id="sidebar">
+	<div class="buffer">
+		<h4><%= @plan.minutes -%> Minutes/Month</h4>
+		<h4><%= @plan.phones -%> Pinless Dialing Numbers</h4>
+		<h4>Unlimited Speed dial numbers</h4>
+		<h4>30 Day Money Back</h4>
+		<h4>1 Minute Rounding</h4>
+		<h4>Superior voice quality</h4>
+		<h4>No Connection/Hidden Fees</h4>
+		<h4>Instant Activation</h4>
+		<h4>Last number redial</h4>
+	</div>
+</div>
+<!-- END sidebar -->			
+<!-- BEGIN sidebar -->
+<div id="sidebar">
+	<div class="buffer">
+		<p>Fraudulent Charges Will Be Reported For Prosecution. Any IP addresses associated with fraudulent credit card charges will be turned over to the authorities.</p>
+	<h4>Your IP Address: <%= request.remote_ip -%></h4>
+	</div>
+</div>
 <!-- END sidebar -->			
 
 			<div class="break"></div>

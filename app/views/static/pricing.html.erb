@@ -20,75 +20,63 @@
 <table width="100%" class="signup">
 		<tbody>
 			<tr>
-			<th>Max</th>
-			<th>Premium</th>
-			<th>Plus</th>
-			<th>Basic</th>
-		</tr>
-		<tr>
-			<td><h2>$57/month</h2></td>
-			<td><h2>$38/month</h2></td>
-			<td><h2>$19/month</h2></td>
-			<td><h2>$11/month</h2></td>
-		</tr>
-		<tr>
-			<td><h3>Top-of-the-line</h3></td>
-			<td><h3>For Big families</h3></td>
-			<td><h3>Most popular plan</h3></td>
-			<td><h3>For individual</h3></td>
-		</tr>
-		<tr>
-			<td><strong>3000</strong> monthly minutes</td>
-			<td><strong>2000</strong> monthly minutes</td>
-			<td><strong>1000</strong> monthly minutes</td>
-			<td><strong>500</strong> monthly minutes</td>
-		</tr>
-		<tr>
-			<td><strong>10</strong> Phones</td>
-			<td><strong>5</strong> Phones</td>
-			<td><strong>2</strong> Phones</td>
-			<td><strong>1</strong> Phone</td>
-		</tr>
-		<tr>
-			<td>Pinless Dialing</td>
-			<td>Pinless Dialing</td>
-			<td>Pinless Dialing</td>
-			<td>Pinless Dialing</td>
-		</tr>
-		<tr>
-			<td>1 Minute Rounding</td>
-			<td>1 Minute Rounding</td>
-			<td>1 Minute Rounding</td>
-			<td>1 Minute Rounding</td>
-		</tr>
-		<tr>
-			<td>No Connection Fees</td>
-			<td>No Connection Fees</td>
-			<td>No Connection Fees</td>
-			<td>No Connection Fees</td>
-		</tr>
-		<tr>
-			<td>30 Day Money Back</td>
-			<td>30 Day Money Back</td>
-			<td>30 Day Money Back</td>
-			<td>30 Day Money Back</td>
-		</tr>
-		<tr>
-			<td>
-				<%= link_to "<img width='113' height='45' alt='Sign Up' src='images/btn_signupchart_large.png'/>", new_user_path(@user, :plan=>"Max") %>
-			</td>
-			<td>
-				<%= link_to "<img width='113' height='45' alt='Sign Up' src='images/btn_signupchart_large.png'/>", new_user_path(@user, :plan=>"Premium") %>
-			</td>
-			<td>
-				<%= link_to "<img width='113' height='45' alt='Sign Up' src='images/btn_signupchart_large.png'/>", new_user_path(@user, :plan=>"Plus") %>
-			</td>
-			<td>
-				<%= link_to "<img width='113' height='45' alt='Sign Up' src='images/btn_signupchart_large.png'/>", new_user_path(@user, :plan=>"Basic") %>
-			</td>
-		</tr>
+				<% @plans.reverse_each do |plan|-%>
+					<th><%= plan.name -%></th>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td><h2><%= monthly_price(plan) -%></h2></td>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td><h3><%= plan.description -%></h3></td>
+				<% end -%>
+			</tr>
+			<tr>
+				<tr>
+					<% @plans.reverse_each do |plan|-%>
+						<td><strong><%= plan.minutes -%></strong> monthly minutes</td>
+					<% end -%>
+				</tr>
+			</tr>
+			<tr>
+				<tr>
+					<% @plans.reverse_each do |plan|-%>
+						<td><%= phones(plan) -%></td>
+					<% end -%>
+				</tr>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td>Pinless Dialing</td>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td>1 Minute Rounding</td>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td>No Connection/Hidden Fees</td>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td>30 Day Money Back</td>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td>
+						<%= link_to "<img width='113' height='45' alt='Sign Up' src='images/btn_signupchart_large.png'/>", new_user_path(@user, :plan=> plan) %>
+					</td>
+				<% end -%>
+			</tr>
 		</tbody>
 </table>
 	
 </div>
-		<!-- END content -->
+<!-- END content -->

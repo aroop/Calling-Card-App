@@ -1,0 +1,51 @@
+		<!-- BEGIN projects -->
+		<div id="projects"><div class="buffer">
+	<table class="homesignup">
+			<tbody>
+				<tr>
+					<% @plans.reverse_each do |plan|-%>
+						<th><%= plan.name -%></th>
+					<% end -%>
+				</tr>
+				<tr>
+					<% @plans.reverse_each do |plan|-%>
+						<td><h2><%= monthly_price(plan) -%></h2></td>
+					<% end -%>
+				</tr>
+			<tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td><h3><%= plan.description -%></h3></td>
+				<% end -%>
+			</tr>
+			<tr>
+				<tr>
+					<% @plans.reverse_each do |plan|-%>
+						<td><strong><%= plan.minutes -%></strong> monthly minutes</td>
+					<% end -%>
+				</tr>
+			</tr>
+			<tr>
+				<tr>
+					<% @plans.reverse_each do |plan|-%>
+						<td><%= phones(plan) -%></td>
+					<% end -%>
+				</tr>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+					<td>30 Day Money Back</td>
+				<% end -%>
+			</tr>
+			<tr>
+				<% @plans.reverse_each do |plan|-%>
+				<td>
+					<%= link_to "<img width='113' height='45' alt='Sign Up' src='images/btn_signupchart_large.png'/>", new_user_path(@user, :plan=> plan) %>
+				</td>
+				<% end -%>
+			</tr>			
+			</tbody></table>
+		</div></div>
+		<!-- END projects -->
+		
+		
