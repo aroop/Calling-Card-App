@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090524035704) do
+ActiveRecord::Schema.define(:version => 20090526030821) do
 
   create_table "cdrs", :force => true do |t|
     t.datetime "calldate"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(:version => 20090524035704) do
     t.datetime "updated_at"
   end
 
+  create_table "payments", :force => true do |t|
+    t.integer  "subscription_id"
+    t.integer  "user_id"
+    t.decimal  "amount",          :precision => 10, :scale => 2, :default => 0.0
+    t.string   "transaction_id"
+    t.string   "action"
+    t.string   "message"
+    t.boolean  "success"
+    t.text     "params"
+    t.boolean  "test"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pinless_numbers", :force => true do |t|
     t.string   "ani_or_phonenumber"
     t.integer  "user_id"
@@ -37,9 +51,10 @@ ActiveRecord::Schema.define(:version => 20090524035704) do
     t.string   "name"
     t.string   "description"
     t.integer  "minutes"
-    t.decimal  "price",       :precision => 10, :scale => 2
+    t.decimal  "price",          :precision => 10, :scale => 2
     t.integer  "phones"
     t.boolean  "recursive"
+    t.integer  "renewal_period",                                :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +64,16 @@ ActiveRecord::Schema.define(:version => 20090524035704) do
     t.string   "description"
     t.integer  "entry"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.datetime "next_renewal_at"
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.string   "state",           :default => "pending"
+    t.integer  "renewal_period",  :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,6 +102,10 @@ ActiveRecord::Schema.define(:version => 20090524035704) do
     t.string   "zip_code",            :default => "", :null => false
     t.string   "phone_number",        :default => "", :null => false
     t.integer  "plan_id",                             :null => false
+    t.string   "billing_id"
+    t.string   "card_number"
+    t.string   "card_expiration"
+    t.integer  "pin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

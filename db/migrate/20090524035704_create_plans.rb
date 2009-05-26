@@ -7,6 +7,7 @@ class CreatePlans < ActiveRecord::Migration
       t.decimal :price,          :precision => 10, :scale => 2
       t.integer :phones
       t.boolean :recursive
+      t.integer :renewal_period, :default => 1
       t.timestamps
     end
   end

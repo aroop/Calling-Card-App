@@ -31,10 +31,10 @@ class ActionMailer::Base
 end
 
 config.after_initialize do
-  ActiveMerchant::Billing::Base.mode = :production
-  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-    :login => "seller_1229899173_biz_api1.railscasts.com",
-    :password => "FXWU58S7KXFC6HBE",
-    :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
-  )
+  #ActiveMerchant::Billing::Base.mode = :production
+  ActiveMerchant::Billing::Base.mode = :test
+  ::GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new({ 
+    :login    => 'demo', 
+    :password => 'password'
+  })
 end

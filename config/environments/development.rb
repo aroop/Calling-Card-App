@@ -21,11 +21,7 @@ end
 
 config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
-#  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-#    :login => "demo",
-#    :password => "password",
-#  )
-  gateway = ActiveMerchant::Billing::BraintreeGateway.new({ 
+  ::GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new({ 
     :login    => 'demo', 
     :password => 'password'
   })

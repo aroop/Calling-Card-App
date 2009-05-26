@@ -4,7 +4,11 @@ class Notifier < ActionMailer::Base
   
   def password_reset_instructions(user)
     setup_email(user, "Password Reset Instructions")    
-  end  
+  end
+  
+  def payment_receipt(payment)
+    setup_email(payment.user, "Payment received")
+  end
   
   protected
 
