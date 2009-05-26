@@ -7,6 +7,17 @@ class User < ActiveRecord::Base
   validate_on_create :validate_card
   validate_on_create :valid_plan?
   
+  validates_presence_of     :login
+  validates_length_of       :login,    :within => 3..40
+  validates_uniqueness_of   :login
+  
+  validates_presence_of     :email
+  validates_length_of       :email,    :within => 6..100
+  validates_uniqueness_of   :email
+  
+  validates_presence_of     :first_name
+  validates_presence_of     :last_name
+  
   has_one :voucher, :dependent => :destroy
   
   has_many :pinless_numbers

@@ -1,18 +1,25 @@
 class UsersController < ApplicationController
-  
+
+  #Authentication System
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
-  before_filter :load_defaults, :only => [:new, :create]
+  #Loading plan for new user
+  before_filter :load_plan, :only => [:new, :create]
   
   layout "account"
   
   def new
+    @user = User.new
+    @creditcard = ActiveMerchant::Billing::CreditCard.new     
     render :layout => "application"
   end
   
   def create
-    @user.first_name = @creditcard.first_name
-    @user.last_name = @creditcard.last_name
+    @user = User.new(params[:user])
+    @creditcard = ActiveMerchant::Billing::CreditCard.new(params[:active_merchant_billing_credit_card])
+    
+    @creditcard.first_name = @user.first_name
+    @creditcard.last_name = @user.last_name
     @user.creditcard = @creditcard
     @user.plan = @plan
     if @user.save
@@ -22,7 +29,7 @@ class UsersController < ApplicationController
       render :action => 'new',  :layout => "application"
     end
   end
-  
+
   def edit
     @user = current_user
   end
@@ -48,10 +55,8 @@ class UsersController < ApplicationController
   
   protected
   
-  def load_defaults
-    @user = User.new(params[:user])
-    @creditcard = ActiveMerchant::Billing::CreditCard.new(params[:creditcard])
-    @plan = params[:plan]? Plan.find(params[:plan]) : Plan.find_by_name('Plus')    
+  def load_plan
+    @plan = params[:plan]? Plan.find(params[:plan]) : Plan.find_by_name('Plus') 
   end
   
 end

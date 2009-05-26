@@ -23,16 +23,16 @@
 				<label>Confirm Password:</label>
 				<%= f.password_field :password_confirmation, :class=>"text", :size=>"48" %>
 			</div>
-
-			<% fields_for @creditcard do |cc| %>
 			<div class="input">
 				<label>First Name:</label>
-				<%= cc.text_field :first_name, :class=>"text", :size=>"48" %>
+				<%= f.text_field :first_name, :class=>"text", :size=>"48" %>
 			</div>
 			<div class="input">
 				<label>Last Name:</label>
-				<%= cc.text_field :last_name, :class=>"text", :size=>"48" %>
+				<%= f.text_field :last_name, :class=>"text", :size=>"48" %>
 			</div>
+
+			<% fields_for @creditcard do |cc| %>
 			<div class="input">
 				<label>Credit Card Type:</label>
 				<%= cc.select :type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
@@ -50,7 +50,6 @@
 				<label>Card Verification Value (CVV):</label>
 				<%= cc.text_field :verification_value, :class=>"text", :size=>"48" %>
 			</div>
-
 		  <% end %>
 				
 			<div class="buttons">
