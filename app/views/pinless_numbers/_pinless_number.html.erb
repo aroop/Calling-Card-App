@@ -1,13 +1,10 @@
 <tr>
 	<% form_for ([pinless_number.user, pinless_number]) do |f| %>
-	<td><%= f.text_field :ani_or_phonenumber, :class=>"text", :size=>"50" %></td>
+	<td><%= f.text_field :ani_or_phonenumber, :class=>"text", :size=>"23" %></td>
+	<td><%= f.text_field :description, :class=>"text", :size=>"23" %></td>
 	<td>
-		<% unless pinless_number.id.blank? -%>
-			<%= f.submit 'Update', :class => "button" %>
-			<%= f.submit 'Delete', :class => "button" %>
-		<% else -%>
-			<%= f.submit 'Add', :class => "button" %>
-		<% end -%>
+		<%= f.submit 'Update', :class => "button" %>
+		<%= f.submit 'Delete', :class => "button" %>
 	</td>
 	<% end -%>
 </tr>

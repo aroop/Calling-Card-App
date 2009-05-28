@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20090526030821) do
 
   create_table "pinless_numbers", :force => true do |t|
     t.string   "ani_or_phonenumber"
+    t.string   "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

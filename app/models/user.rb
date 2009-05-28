@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   #Association
   has_one :subscription, :dependent => :destroy
+  
   has_many :pinless_numbers
 	has_many :speeddial_numbers
 	has_many :cdrs
@@ -32,7 +33,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of   :pin
   validates_length_of       :pin,    :within => 4..14
 
-  before_create :store_card, :create_subscription
+  validate_on_create        :store_card
+  validate_on_create        :valid_subscription?
 
 	def deliver_password_reset_instructions!  
     reset_perishable_token!  
@@ -75,15 +77,18 @@ class User < ActiveRecord::Base
     end
   end
   
-  def create_subscription
-    subscription = Subscription.new(:user => self, :plan => self.plan)
-    subscription.charge
-    self.subscription = subscription      
-  end
-  
   def generate_pin(size = 8)
     chars = ((0..9).to_a)
     self.pin = (1..size).collect{|a| chars[rand(chars.size)] }.join
   end
-
+  
+  def valid_subscription?
+    return if errors.any? # Don't bother with a subscription if there are errors already
+    self.build_subscription(:plan => @plan, :next_renewal_at => Time.now, :user => self)
+    if !subscription.valid?
+      errors.add_to_base("Error with payment: #{subscription.errors.full_messages.to_sentence}")
+      return false
+    end
+  end
+  
 end

@@ -5,14 +5,7 @@ class PinlessNumbersController < ApplicationController
   before_filter :require_user
   
   def new
-    @pinless_numbers = current_user.pinless_numbers
-    @pinless_numbers << PinlessNumber.new
-
-    respond_to do |format|
-      flash[:notice] = 'Please update the newly created pinless dial entry.'
-      format.html{ redirect_to :action => "index" }
-      format.xml  { render :xml => @pinless_numbers }
-    end
+    @pinless_number = current_user.pinless_numbers.build
   end
   
   def create
@@ -32,10 +25,7 @@ class PinlessNumbersController < ApplicationController
 	
 	def index
 		@pinless_numbers = current_user.pinless_numbers
-		if (current_user.pinless_numbers.size == 0)
-		  @pinless_numbers << current_user.pinless_numbers.new
-	  end
-	  
+
 	  respond_to do |format|
       format.html
       format.xml  { render :xml => @pinless_numbers }

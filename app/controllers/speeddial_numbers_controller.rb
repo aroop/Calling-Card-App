@@ -5,14 +5,7 @@ class SpeeddialNumbersController < ApplicationController
   before_filter :require_user
   
   def new
-    @speeddial_numbers = current_user.speeddial_numbers
-    @speeddial_numbers << SpeeddialNumber.new
-
-    respond_to do |format|
-      flash[:notice] = 'Please update the newly created speeddial entry.'
-      format.html{ redirect_to :action => "index" }
-      format.xml  { render :xml => @speeddial_numbers }
-    end    
+    @speeddial_number = current_user.speeddial_numbers.build
   end
   
   def create
@@ -27,14 +20,11 @@ class SpeeddialNumbersController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml => @speeddial_number.errors, :status => :unprocessable_entity }
       end
-    end    
+    end
   end
   
 	def index
 	  @speeddial_numbers = current_user.speeddial_numbers
-		if (current_user.speeddial_numbers.size == 0)
-		  @speeddial_numbers << current_user.speeddial_numbers.new
-	  end
 	  
 	  respond_to do |format|
       format.html

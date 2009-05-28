@@ -22,8 +22,8 @@ class UsersController < ApplicationController
     @creditcard.last_name = @user.last_name
     @user.creditcard = @creditcard
     @user.plan = @plan
-    
-    if @user.save
+
+    if @user.save 
       flash[:notice] = "Account registered!"
       redirect_back_or_default account_url
     else

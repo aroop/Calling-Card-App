@@ -1,11 +1,12 @@
 <!-- BEGIN main -->
 <div id="main">
 	<h2>Pinless Dial Manager</h2>
-<p>	Please enter your login information. Your login information is the Account ID that we gave you when you signed up for one of our paid plans.</p>
+<p>Description of the pinless dial feature goes here</p>
 	<div id="form">
 		<table width="100%">
 			<tr>
-				<th>ANI or IP Address</th>
+				<th>Phone number</th>
+				<th>Description</th>
 				<th></th>
 			</tr>
 			<%= render :partial => 'pinless_number', :collection => @pinless_numbers %>
@@ -15,14 +16,4 @@
 </div>
 <!-- END main -->
 
-<!-- BEGIN sidebar -->
-<div id="sidebar"><div class="buffer">
-	<h2>Pinless Dial Instructions</h2>
-	<ul>
-		<li>Your account can have pinless dialing for more than one phone number.</li>
-		<li>Use the form above to add new phone numbers or manage existing numbers.</li>
-		<li>Whenever you call in from the telephone number or IP address specified in this setting, you will be able to dial internationally without having to enter your account number.</li>
-	</ul>
- 
-</div></div>
-<!-- END sidebar -->
+<%= render :partial => 'sidebar' %>

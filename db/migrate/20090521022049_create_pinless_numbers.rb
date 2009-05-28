@@ -2,6 +2,7 @@ class CreatePinlessNumbers < ActiveRecord::Migration
   def self.up
     create_table :pinless_numbers do |t|
 			t.string :ani_or_phonenumber
+			t.string :description
 			t.references :user
       t.timestamps
     end
