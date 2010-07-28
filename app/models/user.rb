@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   
   def valid_subscription?
     return if errors.any? # Don't bother with a subscription if there are errors already
-    self.build_subscription(:plan => @plan, :next_renewal_at => Time.now, :user => self)
+    self.build_subscription(:plan => @plan, :next_renewal_at => Time.now, :user => self, :minutes => @plan.minutes)
     if !subscription.valid?
       errors.add_to_base("Error with payment: #{subscription.errors.full_messages.to_sentence}")
       return false

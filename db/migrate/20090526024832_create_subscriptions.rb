@@ -6,6 +6,7 @@ class CreateSubscriptions < ActiveRecord::Migration
       t.references  :plan
       t.string      :state,           :default => 'pending'
       t.integer     :renewal_period,  :default => 1
+      t.integer     :minutes
       t.timestamps
     end
   end

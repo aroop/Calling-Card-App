@@ -2,7 +2,7 @@
 
 <h2>Welcome to Account Management Area</h2>
 <br />
-<h3><%= link_to "Account Information", edit_user_url(@user) %></h3>
+<h3><%= link_to "Account Information", edit_user_url(current_user) %></h3>
 View and edit account information here.
 <br />
 <br />
@@ -28,7 +28,7 @@ Add or edit your numbers on speed dial.
 	<!-- begin products -->
 	<h4>India ISD Plan: <%= @user.plan.name -%></h4>
 	<h4>Account Pin: <%= @user.pin -%></h4>
-	<h4>Minutes Available: 527</h4>
+	<h4>Minutes Available: <%= @user.subscription.minutes -%></h4>
 	<h4>Activated: <%= time_ago_in_words @user.created_at -%> ago</h4>
 	<!-- end products -->
 

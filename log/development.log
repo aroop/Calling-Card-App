@@ -21982,3 +21982,611 @@ Rendering pinless_numbers/index
 Rendered pinless_numbers/_pinless_number (11.9ms)
 Rendered pinless_numbers/_sidebar (0.3ms)
 Completed in 194ms (View: 32, DB: 31) | 200 OK [http://localhost/users/1/pinless_numbers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:32:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Columns (13.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '71ced38803d05461d5fb7116db30d43e8680428eaca8dab457cfc07035f2b94ad3455e2b5d57713b2b4783982a73f2e1f7ff23a98203246030e5021e7235dc1f') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:32:07', `perishable_token` = 'eoP5sHY5iZB5jMIVkRo7', `last_request_at` = '2009-05-28 05:32:07' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;36;1mPlan Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.3ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+Completed in 247ms (View: 36, DB: 21) | 200 OK [http://localhost/users/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:33:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (5.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '71ced38803d05461d5fb7116db30d43e8680428eaca8dab457cfc07035f2b94ad3455e2b5d57713b2b4783982a73f2e1f7ff23a98203246030e5021e7235dc1f') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:33:49', `perishable_token` = 'dhdKFCCJDnxlZkqqKVqw', `last_request_at` = '2009-05-28 05:33:49' WHERE `id` = 1[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;35;1mPlan Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.6ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;35;1mSubscription Load (0.4ms)[0m   [0mSELECT * FROM `subscriptions` WHERE (`subscriptions`.user_id = 1) LIMIT 1[0m
+  [4;36;1mSubscription Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `subscriptions`[0m
+
+ActionView::TemplateError (undefined method `minutes' for "#<Subscription:0x22d3690>":Subscription) on line #31 of app/views/users/show.html.erb:
+28: 	<!-- begin products -->
+29: 	<h4>India ISD Plan: <%= @user.plan.name -%></h4>
+30: 	<h4>Account Pin: <%= @user.pin -%></h4>
+31: 	<h4>Minutes Available: <%= @user.subscription.minutes -%></h4>
+32: 	<h4>Activated: <%= time_ago_in_words @user.created_at -%> ago</h4>
+33: 	<!-- end products -->
+34: 
+
+    app/views/users/show.html.erb:31
+    app/controllers/users_controller.rb:51:in `show'
+
+Rendered rescues/_trace (149.3ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (12.1ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (47.2ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090521003303)
+  [4;35;1mSQL (3.6ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `perishable_token` varchar(255) DEFAULT '' NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `first_name` varchar(255) NOT NULL, `last_name` varchar(255) NOT NULL, `address_1` varchar(255) NOT NULL, `address_2` varchar(255) NOT NULL, `city` varchar(255) NOT NULL, `state` varchar(255) NOT NULL, `zip_code` varchar(255) NOT NULL, `phone_number` varchar(255) NOT NULL, `plan_id` int(11) NOT NULL, `billing_id` varchar(255), `card_number` varchar(255), `card_expiration` varchar(255), `pin` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090521003303')[0m
+Migrating to CreateSpeeddialNumbers (20090521021909)
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE TABLE `speeddial_numbers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `number` varchar(255), `description` varchar(255), `entry` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090521021909')[0m
+Migrating to CreatePinlessNumbers (20090521022049)
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE TABLE `pinless_numbers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `ani_or_phonenumber` varchar(255), `description` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090521022049')[0m
+Migrating to CreateCdrs (20090522054301)
+  [4;35;1mSQL (2.2ms)[0m   [0mCREATE TABLE `cdrs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `calldate` datetime, `src` varchar(255), `dst` varchar(255), `channel` varchar(255), `dstchannel` varchar(255), `didnumber` varchar(255), `duration` int(11), `billsec` int(11), `disposition` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090522054301')[0m
+Migrating to CreatePlans (20090524035704)
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE TABLE `plans` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` varchar(255), `minutes` int(11), `price` decimal(10,2), `phones` int(11), `recursive` tinyint(1), `renewal_period` int(11) DEFAULT 1, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090524035704')[0m
+Migrating to CreateSubscriptions (20090526024832)
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE TABLE `subscriptions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `next_renewal_at` datetime, `user_id` int(11), `plan_id` int(11), `state` varchar(255) DEFAULT 'pending', `renewal_period` int(11) DEFAULT 1, `minutes` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090526024832')[0m
+Migrating to CreatePayments (20090526030821)
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE `payments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `subscription_id` int(11), `user_id` int(11), `amount` decimal(10,2) DEFAULT 0.0, `transaction_id` varchar(255), `action` varchar(255), `message` varchar(255), `success` tinyint(1), `params` text, `test` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090526030821')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (8.4ms)[0m   [0;1mSHOW FIELDS FROM `cdrs`[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mdescribe `cdrs`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mSHOW KEYS FROM `cdrs`[0m
+  [4;35;1mSQL (8.8ms)[0m   [0mSHOW FIELDS FROM `payments`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `payments`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `payments`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW FIELDS FROM `pinless_numbers`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `pinless_numbers`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `pinless_numbers`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `plans`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `plans`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `speeddial_numbers`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `speeddial_numbers`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `speeddial_numbers`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `subscriptions`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mdescribe `subscriptions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `subscriptions`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mPlan Columns (14.1ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mSQL (9.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `plans` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPlan Create (0.5ms)[0m   [0;1mINSERT INTO `plans` (`name`, `price`, `renewal_period`, `created_at`, `minutes`, `updated_at`, `phones`, `description`, `recursive`) VALUES('Basic', 2.39, 1, '2009-05-28 05:34:17', 500, '2009-05-28 05:34:17', 2, 'For individual', NULL)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPlan Create (0.4ms)[0m   [0mINSERT INTO `plans` (`name`, `price`, `renewal_period`, `created_at`, `minutes`, `updated_at`, `phones`, `description`, `recursive`) VALUES('Plus', 1.95, 1, '2009-05-28 05:34:17', 1000, '2009-05-28 05:34:17', 5, 'Most popular plan', NULL)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPlan Create (0.3ms)[0m   [0;1mINSERT INTO `plans` (`name`, `price`, `renewal_period`, `created_at`, `minutes`, `updated_at`, `phones`, `description`, `recursive`) VALUES('Premium', 1.59, 1, '2009-05-28 05:34:17', 1500, '2009-05-28 05:34:17', 0, 'For Big families', NULL)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPlan Create (0.9ms)[0m   [0mINSERT INTO `plans` (`name`, `price`, `renewal_period`, `created_at`, `minutes`, `updated_at`, `phones`, `description`, `recursive`) VALUES('Max', 1.49, 1, '2009-05-28 05:34:17', 2000, '2009-05-28 05:34:17', 0, 'Top of the line', NULL)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-27 22:34:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+  [4;35;1mPlan Load (0.4ms)[0m   [0mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/index
+  [4;36;1mPlan Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+Rendered static/_plans (12.3ms)
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '71ced38803d05461d5fb7116db30d43e8680428eaca8dab457cfc07035f2b94ad3455e2b5d57713b2b4783982a73f2e1f7ff23a98203246030e5021e7235dc1f') LIMIT 1[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 249ms (View: 211, DB: 6) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-27 22:34:26) [GET]
+  Parameters: {"plan"=>"4", "action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (13.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '71ced38803d05461d5fb7116db30d43e8680428eaca8dab457cfc07035f2b94ad3455e2b5d57713b2b4783982a73f2e1f7ff23a98203246030e5021e7235dc1f') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.3ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 160ms (View: 41, DB: 17) | 200 OK [http://localhost/users/new?plan=4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-27 22:34:46) [POST]
+  Parameters: {"plan"=>"4", "active_merchant_billing_credit_card"=>{"number"=>"4111111111111111", "month"=>"5", "type"=>"visa", "year"=>"2009", "verification_value"=>"730"}, "action"=>"create", "authenticity_token"=>"PzEjamVryTsxkZb4yClWPr10MZnx5BhTNFBPb2vH++U=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"Guthikonda", "password"=>"[FILTERED]", "login"=>"aroop", "first_name"=>"Ajay kumar", "email"=>"aroopchandra@gmail.com"}}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '71ced38803d05461d5fb7116db30d43e8680428eaca8dab457cfc07035f2b94ad3455e2b5d57713b2b4783982a73f2e1f7ff23a98203246030e5021e7235dc1f') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPlan Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (1.2ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'aroopchandra@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'aroop') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'nTy__qE5Rjm8ZINEVa4B') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`login` = BINARY 'aroop') LIMIT 1[0m
+  [4;36;1mUser Exists (1.9ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'aroopchandra@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`pin` = 4113448) LIMIT 1[0m
+  [4;36;1mSubscription Columns (12.0ms)[0m   [0;1mSHOW FIELDS FROM `subscriptions`[0m
+  [4;35;1mPayment Columns (11.5ms)[0m   [0mSHOW FIELDS FROM `payments`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '71ced38803d05461d5fb7116db30d43e8680428eaca8dab457cfc07035f2b94ad3455e2b5d57713b2b4783982a73f2e1f7ff23a98203246030e5021e7235dc1f') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Create (3.5ms)[0m   [0;1mINSERT INTO `users` (`city`, `single_access_token`, `last_request_at`, `card_expiration`, `created_at`, `crypted_password`, `zip_code`, `billing_id`, `perishable_token`, `updated_at`, `card_number`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `address_1`, `phone_number`, `persistence_token`, `login_count`, `last_name`, `address_2`, `last_login_ip`, `login`, `last_login_at`, `email`, `first_name`, `state`, `plan_id`, `pin`) VALUES('', 'nTy__qE5Rjm8ZINEVa4B', '2009-05-28 05:34:50', '05-2009', '2009-05-28 05:34:50', '673f510549ed3efd349f82494a6587e87669242fe1e94b45b8c090554559c780949d3b6088e8e121b63735d5816b8fb35e63f3a6214a3c4bd8396d90ef6ebec9', '', '1315186619', 'VwtOwyEyHmn9wUXkqMg-', '2009-05-28 05:34:50', 'XXXX-XXXX-XXXX-1111', 0, '127.0.0.1', 'oIdQZwHbdBBR-io8SNZG', '2009-05-28 05:34:50', '', '', 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840', 1, 'Guthikonda', '', NULL, 'aroop', NULL, 'aroopchandra@gmail.com', 'Ajay kumar', '', 4, 4113448)[0m
+  [4;35;1mSubscription Create (0.3ms)[0m   [0mINSERT INTO `subscriptions` (`renewal_period`, `created_at`, `minutes`, `updated_at`, `user_id`, `next_renewal_at`, `plan_id`, `state`) VALUES(1, '2009-05-28 05:34:50', NULL, '2009-05-28 05:34:50', 1, '2009-06-28 05:34:50', 4, 'active')[0m
+  [4;36;1mPayment Load (0.7ms)[0m   [0;1mSELECT * FROM `payments` WHERE (`payments`.subscription_id = NULL) [0m
+  [4;35;1mPayment Create (0.3ms)[0m   [0mINSERT INTO `payments` (`created_at`, `updated_at`, `amount`, `transaction_id`, `action`, `user_id`, `subscription_id`, `success`, `params`, `message`, `test`) VALUES('2009-05-28 05:34:50', '2009-05-28 05:34:50', 29.8, '975709965', NULL, 1, 1, 1, '--- \navsresponse: \nresponse: \"1\"\nauthcode: \"123456\"\norderid: \nresponsetext: SUCCESS\nresponse_code: \"100\"\ntransactionid: \"975709965\"\ntype: sale\ncvvresponse: \n', 'This transaction has been approved', 1)[0m
+Sent mail to aroopchandra@gmail.com
+
+Date: Wed, 27 May 2009 22:34:50 -0700
+From: India ISD <no-reply@IndiaISD.com>
+To: aroopchandra@gmail.com
+Subject: [www.IndiaISD.com] Payment received
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Ajay kumar Guthikonda,
+
+Your payment has been received. This is a incomplete mail.
+
+Thanks,
+India ISD Team
+  [4;36;1mSQL (9.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/account
+Completed in 7275ms (DB: 49) | 302 Found [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:34:53) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Columns (3.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:34:53', `perishable_token` = '34k46pmaGoG67bREV3nK', `last_request_at` = '2009-05-28 05:34:53' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;36;1mPlan Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (0.5ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;36;1mSubscription Load (0.3ms)[0m   [0;1mSELECT * FROM `subscriptions` WHERE (`subscriptions`.user_id = 1) LIMIT 1[0m
+  [4;35;1mSubscription Columns (3.8ms)[0m   [0mSHOW FIELDS FROM `subscriptions`[0m
+Completed in 185ms (View: 64, DB: 12) | 200 OK [http://localhost/account]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-27 22:36:09) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mPlan Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+Rendered static/_plans (12.0ms)
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 129ms (View: 89, DB: 6) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-27 22:36:11) [GET]
+  Parameters: {"plan"=>"4", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (13.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mPlan Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (1.1ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 174ms (View: 41, DB: 17) | 200 OK [http://localhost/users/new?plan=4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-05-27 22:36:31) [POST]
+  Parameters: {"plan"=>"4", "active_merchant_billing_credit_card"=>{"number"=>"4111111111111111", "month"=>"5", "type"=>"visa", "year"=>"2009", "verification_value"=>"730"}, "action"=>"create", "authenticity_token"=>"PzEjamVryTsxkZb4yClWPr10MZnx5BhTNFBPb2vH++U=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "last_name"=>"Guthikonda", "password"=>"[FILTERED]", "login"=>"ajay", "first_name"=>"Ajay kumar", "email"=>"ajay@jcomponent.com"}}
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mPlan Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (1.1ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'ajay@jcomponent.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'ajay') LIMIT 1[0m
+  [4;36;1mUser Exists (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mUser Exists (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'XE3GIgdStZN4hYNZMNoj') LIMIT 1[0m
+  [4;36;1mUser Exists (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`login` = BINARY 'ajay') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'ajay@jcomponent.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`pin` = 5692297) LIMIT 1[0m
+  [4;35;1mSubscription Columns (11.1ms)[0m   [0mSHOW FIELDS FROM `subscriptions`[0m
+  [4;36;1mPayment Columns (13.0ms)[0m   [0;1mSHOW FIELDS FROM `payments`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'ffd1ccadb0b200998da01912d554e89c314cf3d53f5cd8a0bc1bf9616e4b52005e8c5ac0a08aa01d032b0b93ebeb6177de6d02463206f7aea385b853f8203840') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO `users` (`city`, `single_access_token`, `last_request_at`, `card_expiration`, `created_at`, `crypted_password`, `zip_code`, `billing_id`, `perishable_token`, `updated_at`, `card_number`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `address_1`, `phone_number`, `persistence_token`, `login_count`, `last_name`, `address_2`, `last_login_ip`, `login`, `last_login_at`, `email`, `first_name`, `state`, `plan_id`, `pin`) VALUES('', 'XE3GIgdStZN4hYNZMNoj', '2009-05-28 05:36:36', '05-2009', '2009-05-28 05:36:36', '9c9c09c4a82a549a631109a411046a20239cbae0450ae2b683d28aef019ad403ab9c8b22be94b6d3be355855b4f1048f8eee78c22d4d824581475a8cbd1d9750', '', '133130142', 'p9yBw0kFfsMHBw3iuBWi', '2009-05-28 05:36:36', 'XXXX-XXXX-XXXX-1111', 0, '127.0.0.1', 'dpEIutJ4euwJBgv2f2U1', '2009-05-28 05:36:36', '', '', '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475', 1, 'Guthikonda', '', NULL, 'ajay', NULL, 'ajay@jcomponent.com', 'Ajay kumar', '', 4, 5692297)[0m
+  [4;36;1mSubscription Create (0.3ms)[0m   [0;1mINSERT INTO `subscriptions` (`renewal_period`, `created_at`, `minutes`, `updated_at`, `user_id`, `next_renewal_at`, `plan_id`, `state`) VALUES(1, '2009-05-28 05:36:36', 2000, '2009-05-28 05:36:36', 2, '2009-06-28 05:36:36', 4, 'active')[0m
+  [4;35;1mPayment Load (2.5ms)[0m   [0mSELECT * FROM `payments` WHERE (`payments`.subscription_id = NULL) [0m
+  [4;36;1mPayment Create (0.3ms)[0m   [0;1mINSERT INTO `payments` (`created_at`, `updated_at`, `amount`, `transaction_id`, `action`, `user_id`, `subscription_id`, `success`, `params`, `message`, `test`) VALUES('2009-05-28 05:36:36', '2009-05-28 05:36:36', 29.8, '975710234', NULL, 2, 2, 1, '--- \navsresponse: \nresponse: \"1\"\nauthcode: \"123456\"\norderid: \nresponsetext: SUCCESS\nresponse_code: \"100\"\ntransactionid: \"975710234\"\ntype: sale\ncvvresponse: \n', 'This transaction has been approved', 1)[0m
+Sent mail to ajay@jcomponent.com
+
+Date: Wed, 27 May 2009 22:36:36 -0700
+From: India ISD <no-reply@IndiaISD.com>
+To: ajay@jcomponent.com
+Subject: [www.IndiaISD.com] Payment received
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Ajay kumar Guthikonda,
+
+Your payment has been received. This is a incomplete mail.
+
+Thanks,
+India ISD Team
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/account
+Completed in 6476ms (DB: 38) | 302 Found [http://localhost/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:36:38) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (202.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (19.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:36:38', `perishable_token` = 'LdFhm6UDUlYCABGEsfBr', `last_request_at` = '2009-05-28 05:36:38' WHERE `id` = 2[0m
+  [4;36;1mSQL (18.0ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;35;1mPlan Columns (29.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (16.5ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;35;1mSubscription Load (82.5ms)[0m   [0mSELECT * FROM `subscriptions` WHERE (`subscriptions`.user_id = 2) LIMIT 1[0m
+  [4;36;1mSubscription Columns (11.1ms)[0m   [0;1mSHOW FIELDS FROM `subscriptions`[0m
+Completed in 860ms (View: 287, DB: 381) | 200 OK [http://localhost/account]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-27 22:36:50) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"pinless_numbers"}
+  [4;35;1mUser Columns (12.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:36:50', `perishable_token` = 'UuTG-yDLAQ3Bys5Rqqw4', `last_request_at` = '2009-05-28 05:36:50' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;36;1mPinlessNumber Load (0.4ms)[0m   [0;1mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 2) [0m
+Rendered pinless_numbers/_sidebar (0.3ms)
+Completed in 173ms (View: 11, DB: 17) | 200 OK [http://localhost/users/2/pinless_numbers]
+  [4;35;1mSQL (8.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#index (for 127.0.0.1 at 2009-05-27 22:36:51) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"speeddial_numbers"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:36:51', `perishable_token` = '_i3A1CniMkzrXBPqe4Ez', `last_request_at` = '2009-05-28 05:36:51' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering speeddial_numbers/index
+  [4;36;1mSpeeddialNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 2) [0m
+Rendered speeddial_numbers/_sidebar (0.3ms)
+Completed in 168ms (View: 13, DB: 13) | 200 OK [http://localhost/users/2/speeddial_numbers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-27 22:36:53) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"cdrs"}
+  [4;35;1mUser Columns (12.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:36:53', `perishable_token` = 'rjNmr33eQ17WBqGqpgit', `last_request_at` = '2009-05-28 05:36:53' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 138ms (View: 10, DB: 15) | 200 OK [http://localhost/users/2/cdrs]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-05-27 22:36:55) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (3.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:36:56', `perishable_token` = 'DmeNObgcnRwI2Q7oMmIO', `last_request_at` = '2009-05-28 05:36:56' WHERE `id` = 2[0m
+  [4;36;1mSQL (9.6ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/edit
+Completed in 291ms (View: 22, DB: 15) | 200 OK [http://localhost/users/2/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CdrsController#index (for 127.0.0.1 at 2009-05-27 22:37:00) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"cdrs"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:00', `perishable_token` = 'z9Fgrt7C9xPQec12hbvp', `last_request_at` = '2009-05-28 05:37:00' WHERE `id` = 2[0m
+  [4;35;1mSQL (28.4ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering cdrs/index
+Completed in 154ms (View: 8, DB: 33) | 200 OK [http://localhost/users/2/cdrs]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:37:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (15.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:02', `perishable_token` = 'pMjlsHJcxjplwBEvILqb', `last_request_at` = '2009-05-28 05:37:02' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;35;1mPlan Columns (3.3ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (1.5ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;35;1mSubscription Load (0.3ms)[0m   [0mSELECT * FROM `subscriptions` WHERE (`subscriptions`.user_id = 2) LIMIT 1[0m
+  [4;36;1mSubscription Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `subscriptions`[0m
+Completed in 210ms (View: 66, DB: 24) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PinlessNumbersController#index (for 127.0.0.1 at 2009-05-27 22:37:23) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"pinless_numbers"}
+  [4;35;1mUser Columns (15.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.7ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:23', `perishable_token` = 'idwfo_uGB1hBo1Ft4Fdc', `last_request_at` = '2009-05-28 05:37:23' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering pinless_numbers/index
+  [4;36;1mPinlessNumber Load (0.3ms)[0m   [0;1mSELECT * FROM `pinless_numbers` WHERE (`pinless_numbers`.user_id = 2) [0m
+Rendered pinless_numbers/_sidebar (0.3ms)
+Completed in 146ms (View: 11, DB: 18) | 200 OK [http://localhost/users/2/pinless_numbers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SpeeddialNumbersController#index (for 127.0.0.1 at 2009-05-27 22:37:25) [GET]
+  Parameters: {"action"=>"index", "user_id"=>"2", "controller"=>"speeddial_numbers"}
+  [4;35;1mUser Columns (12.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (10.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:26', `perishable_token` = 'tSjx1hfo4tcXE8uxSVM8', `last_request_at` = '2009-05-28 05:37:26' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering speeddial_numbers/index
+  [4;36;1mSpeeddialNumber Load (0.6ms)[0m   [0;1mSELECT * FROM `speeddial_numbers` WHERE (`speeddial_numbers`.user_id = 2) [0m
+Rendered speeddial_numbers/_sidebar (0.3ms)
+Completed in 237ms (View: 11, DB: 25) | 200 OK [http://localhost/users/2/speeddial_numbers]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-05-27 22:37:29) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Columns (13.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.6ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:29', `perishable_token` = 'tHaYWNPNzUb7-8RwiKz3', `last_request_at` = '2009-05-28 05:37:29' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/edit
+Completed in 152ms (View: 22, DB: 17) | 200 OK [http://localhost/users/2/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:37:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (13.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:36', `perishable_token` = 'Yk0NyWzx7HCADvhJibBO', `last_request_at` = '2009-05-28 05:37:36' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;35;1mSubscription Load (0.4ms)[0m   [0mSELECT * FROM `subscriptions` WHERE (`subscriptions`.user_id = 2) LIMIT 1[0m
+  [4;36;1mSubscription Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `subscriptions`[0m
+Completed in 211ms (View: 70, DB: 22) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#toc (for 127.0.0.1 at 2009-05-27 22:37:54) [GET]
+  Parameters: {"action"=>"toc", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/toc
+  [4;35;1mUser Columns (13.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:37:54', `perishable_token` = 'HeCLPUYxHYnH_rlqDZ1y', `last_request_at` = '2009-05-28 05:37:54' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCOMMIT[0m
+Completed in 314ms (View: 284, DB: 16) | 200 OK [http://localhost/toc]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#toc (for 127.0.0.1 at 2009-05-27 22:39:39) [GET]
+  Parameters: {"action"=>"toc", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/toc
+  [4;36;1mUser Columns (13.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:39:40', `perishable_token` = 'SplmKadecfWCiEz25ncU', `last_request_at` = '2009-05-28 05:39:40' WHERE `id` = 2[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mCOMMIT[0m
+Completed in 129ms (View: 97, DB: 18) | 200 OK [http://localhost/toc]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#privacy (for 127.0.0.1 at 2009-05-27 22:39:56) [GET]
+  Parameters: {"action"=>"privacy", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/privacy
+  [4;35;1mUser Columns (13.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:39:56', `perishable_token` = 'DGM9YdJ-f4Ca4ZlaD42d', `last_request_at` = '2009-05-28 05:39:56' WHERE `id` = 2[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mCOMMIT[0m
+Completed in 149ms (View: 117, DB: 17) | 200 OK [http://localhost/privacy]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#faq (for 127.0.0.1 at 2009-05-27 22:40:01) [GET]
+  Parameters: {"action"=>"faq", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/faq
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:40:01', `perishable_token` = 'aZgC_ZAfs9jLGCJp2rfr', `last_request_at` = '2009-05-28 05:40:01' WHERE `id` = 2[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mCOMMIT[0m
+Completed in 185ms (View: 137, DB: 32) | 200 OK [http://localhost/faq]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#contact (for 127.0.0.1 at 2009-05-27 22:40:22) [GET]
+  Parameters: {"action"=>"contact", "controller"=>"static"}
+Rendering template within layouts/application
+Rendering static/contact
+  [4;35;1mUser Columns (13.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.4ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 05:40:22', `perishable_token` = 'klWVv6kYVCPGFT8_YKGK', `last_request_at` = '2009-05-28 05:40:22' WHERE `id` = 2[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+Completed in 126ms (View: 96, DB: 16) | 200 OK [http://localhost/contact]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-27 22:40:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (12.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-05-28 05:40:27', `perishable_token` = 'swUHjTkg00jq2hPYwgpQ', `last_request_at` = '2009-05-28 05:40:27' WHERE `id` = 2[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/show
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+  [4;36;1mPlan Load (0.7ms)[0m   [0;1mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+  [4;35;1mSubscription Load (0.3ms)[0m   [0mSELECT * FROM `subscriptions` WHERE (`subscriptions`.user_id = 2) LIMIT 1[0m
+  [4;36;1mSubscription Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `subscriptions`[0m
+Completed in 202ms (View: 63, DB: 19) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (95.7ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (55.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2009-05-28 09:04:21) [GET]
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Columns (324.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (267.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6261c92301631f762441365f57db3bde6bf89d49c30dbe2be87fb68be4d3a5ea83a78149c95ee05bcf0a2ba028928f2417af60f7fee1ec47b0d23edc5d8b4475') LIMIT 1[0m
+  [4;35;1mSQL (10.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (162.5ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-05-28 16:04:23', `perishable_token` = 'sinGkseNMeaVpYcp7T4s', `last_request_at` = '2009-05-28 16:04:23' WHERE `id` = 2[0m
+  [4;35;1mSQL (104.4ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/account
+Rendering users/edit
+Completed in 1431ms (View: 23, DB: 1021) | 200 OK [http://localhost/users/2/edit]
+  [4;36;1mSQL (110.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (28.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-28 20:35:28) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+  [4;36;1mPlan Load (617.7ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mPlan Columns (77.2ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+Rendered static/_plans (176.2ms)
+  [4;36;1mUser Columns (49.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 1734ms (View: 655, DB: 883) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-05-28 20:52:28) [GET]
+  Parameters: {"plan"=>"4", "action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (13.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPlan Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `plans`[0m
+  [4;35;1mPlan Load (45.9ms)[0m   [0mSELECT * FROM `plans` WHERE (`plans`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 913ms (View: 297, DB: 62) | 200 OK [http://localhost/users/new?plan=4]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-05-29 06:16:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+  [4;36;1mPlan Load (0.4ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mPlan Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+Rendered static/_plans (13.1ms)
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 289ms (View: 238, DB: 6) | 200 OK [http://localhost/]
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing StaticController#index (for 127.0.0.1 at 2009-06-05 19:57:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"static"}
+  [4;36;1mPlan Load (37.0ms)[0m   [0;1mSELECT * FROM `plans` [0m
+Rendering template within layouts/application
+Rendering static/index
+  [4;35;1mPlan Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `plans`[0m
+Rendered static/_plans (26.7ms)
+  [4;36;1mUser Columns (42.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 579ms (View: 312, DB: 84) | 200 OK [http://localhost/]

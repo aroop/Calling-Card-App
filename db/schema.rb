@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20090526030821) do
     t.integer  "plan_id"
     t.string   "state",           :default => "pending"
     t.integer  "renewal_period",  :default => 1
+    t.integer  "minutes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
